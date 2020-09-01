@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Importing CCHS to R | Survey Data Analysis</title>
+  <meta name="description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Importing CCHS to R | Survey Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
+  <meta name="github-repo" content="ehsanx/504007-SurveyData" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Importing CCHS to R | Survey Data Analysis" />
+  
+  <meta name="twitter:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
+  
+
+<meta name="author" content="Ehsan Karim" />
+
+
+<meta name="date" content="2020-09-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="design-based-approach.html"/>
+<link rel="next" href="importing-nhanes-to-r.html"/>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Survey Data Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this Text</a></li>
+<li class="chapter" data-level="2" data-path="tab-3.html"><a href="tab-3.html"><i class="fa fa-check"></i><b>2</b> Model-based Approach</a><ul>
+<li class="chapter" data-level="2.1" data-path="tab-3.html"><a href="tab-3.html#example"><i class="fa fa-check"></i><b>2.1</b> Example</a></li>
+<li class="chapter" data-level="2.2" data-path="tab-3.html"><a href="tab-3.html#research-question"><i class="fa fa-check"></i><b>2.2</b> Research question</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="tab-3.html"><a href="tab-3.html#notations"><i class="fa fa-check"></i><b>2.2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2.2" data-path="tab-3.html"><a href="tab-3.html#assumptions"><i class="fa fa-check"></i><b>2.2.2</b> Assumptions</a></li>
+<li class="chapter" data-level="2.2.3" data-path="tab-3.html"><a href="tab-3.html#hypothesis"><i class="fa fa-check"></i><b>2.2.3</b> Hypothesis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="tab-3.html"><a href="tab-3.html#data"><i class="fa fa-check"></i><b>2.3</b> Data</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="tab-3.html"><a href="tab-3.html#data-table"><i class="fa fa-check"></i><b>2.3.1</b> Data table</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tab-3.html"><a href="tab-3.html#visualization"><i class="fa fa-check"></i><b>2.3.2</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tab-3.html"><a href="tab-3.html#checking-assumptions"><i class="fa fa-check"></i><b>2.4</b> Checking assumptions</a></li>
+<li class="chapter" data-level="2.5" data-path="tab-3.html"><a href="tab-3.html#analysis"><i class="fa fa-check"></i><b>2.5</b> Analysis</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="tab-3.html"><a href="tab-3.html#two-sample-t-test"><i class="fa fa-check"></i><b>2.5.1</b> Two-sample t-test</a></li>
+<li class="chapter" data-level="2.5.2" data-path="tab-3.html"><a href="tab-3.html#regression"><i class="fa fa-check"></i><b>2.5.2</b> Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="tab-3.html"><a href="tab-3.html#anova"><i class="fa fa-check"></i><b>2.5.3</b> ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="tab-3.html"><a href="tab-3.html#verdict"><i class="fa fa-check"></i><b>2.6</b> Verdict</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="tab-3.html"><a href="tab-3.html#informal-conclusion"><i class="fa fa-check"></i><b>2.6.1</b> Informal conclusion</a></li>
+<li class="chapter" data-level="2.6.2" data-path="tab-3.html"><a href="tab-3.html#a-word-of-caution"><i class="fa fa-check"></i><b>2.6.2</b> A word of caution</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="tab-3.html"><a href="tab-3.html#exercises-optional"><i class="fa fa-check"></i><b>2.7</b> Exercises (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="design-based-approach.html"><a href="design-based-approach.html"><i class="fa fa-check"></i><b>3</b> Design-based Approach</a><ul>
+<li class="chapter" data-level="3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#sampling"><i class="fa fa-check"></i><b>3.1</b> Sampling</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="design-based-approach.html"><a href="design-based-approach.html#steps-of-generalization"><i class="fa fa-check"></i><b>3.1.1</b> Steps of generalization</a></li>
+<li class="chapter" data-level="3.1.2" data-path="design-based-approach.html"><a href="design-based-approach.html#types-of-sampling-techniques"><i class="fa fa-check"></i><b>3.1.2</b> Types of sampling techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#statistical-inference"><i class="fa fa-check"></i><b>3.2</b> Statistical inference</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#model-based"><i class="fa fa-check"></i><b>3.2.1</b> Model-based</a></li>
+<li class="chapter" data-level="3.2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-based"><i class="fa fa-check"></i><b>3.2.2</b> Design-based</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="design-based-approach.html"><a href="design-based-approach.html#complex-surveys"><i class="fa fa-check"></i><b>3.3</b> Complex surveys</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#design-features"><i class="fa fa-check"></i><b>3.3.1</b> Design features</a></li>
+<li class="chapter" data-level="3.3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-effect"><i class="fa fa-check"></i><b>3.3.2</b> Design effect</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>3.4</b> Further readings</a></li>
+<li class="chapter" data-level="3.5" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>4</b> Importing CCHS to R</a><ul>
+<li class="chapter" data-level="4.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>4.1</b> Downloading CCHS data from UBC</a></li>
+<li class="chapter" data-level="4.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>4.2</b> Reading and Formatting the data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>4.2.1</b> Option 1: Processing data using SAS</a></li>
+<li class="chapter" data-level="4.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>4.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>4.3</b> Processing data in R</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>4.3.1</b> Download software</a></li>
+<li class="chapter" data-level="4.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>4.3.2</b> Import, export and load data into R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>5</b> Importing NHANES to R</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>5.1</b> NHANES Dataset</a></li>
+<li class="chapter" data-level="5.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>5.2</b> Accessing NHANES Data</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>5.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>5.2.2</b> Accessing NHANES Data Using R Packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="http://ehsank.com/" target="blank">Author website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Survey Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importing-cchs-to-r" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Importing CCHS to R</h1>
+<p>This is a short instruction document of how to get CCHS dataset from the UBC library site to your RStudio environment. Once we bring the dataset into RStudio, the next step is to think about creating analytic dataset.</p>
+<div id="downloading-cchs-data-from-ubc" class="section level2">
+<h2><span class="header-section-number">4.1</span> Downloading CCHS data from UBC</h2>
+<ul>
+<li><strong>Step 1</strong>: Go to <a href="http://dvn.library.ubc.ca">dvn.library.ubc.ca</a>, and press ‘log-in’</li>
+</ul>
+<p><img src="images/abacus1.png" width="65%" /></p>
+<ul>
+<li><strong>Step 2</strong>: Select ‘UBC’ from the dropdown menu</li>
+</ul>
+<p><img src="images/abacus2.png" width="65%" /></p>
+<ul>
+<li><strong>Step 3</strong>: Enter your CWL or UBC library authentication information</li>
+</ul>
+<p><img src="images/abacus3.png" width="65%" /></p>
+<ul>
+<li><strong>Step 4</strong>: Once you log-in, search the term ‘cchs’ in the search-box</li>
+</ul>
+<p><img src="images/abacus4.png" width="65%" /></p>
+<ul>
+<li><strong>Step 5</strong>: For illustrative purposes, let us work with the Cycle 3.1 of the CCHS dataset from the list of results</li>
+</ul>
+<p><img src="images/abacus5.png" width="65%" /></p>
+<ul>
+<li><strong>Step 6</strong>: CCHS Cycle 3.1 information</li>
+</ul>
+<p><img src="images/abacus6.png" width="65%" /></p>
+<ul>
+<li><strong>Step 7</strong>: Choose the ‘Data and Analysis’ tab</li>
+</ul>
+<p><img src="images/abacus7.png" width="65%" /></p>
+<ul>
+<li><strong>Step 8</strong>: Download the entire data (about 159 MB) as a zip file</li>
+</ul>
+<p><img src="images/abacus8.png" width="65%" /></p>
+<ul>
+<li><strong>Step 9</strong>: Accept the ‘terms of use’</li>
+</ul>
+<p><img src="images/abacus9.png" width="65%" /></p>
+<ul>
+<li><strong>Step 10</strong>: Select a directory to download the zip file</li>
+</ul>
+<p><img src="images/abacus10.png" width="65%" /></p>
+<ul>
+<li><strong>Step 11</strong>: Extract the zip file</li>
+</ul>
+<p><img src="images/abacus11.png" width="65%" /></p>
+<ul>
+<li><strong>Step 12</strong>: Be patient with the extraction</li>
+</ul>
+<p><img src="images/abacus12.png" width="65%" /></p>
+<ul>
+<li><strong>Step 13</strong>: Once extraction is complete, take a look at the folders inside. You will see that there is a folder named ‘SAS_SPSS’</li>
+</ul>
+<p><img src="images/abacus13.png" width="65%" /></p>
+</div>
+<div id="reading-and-formatting-the-data" class="section level2">
+<h2><span class="header-section-number">4.2</span> Reading and Formatting the data</h2>
+<div id="option-1-processing-data-using-sas" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Option 1: Processing data using SAS</h3>
+<p>SAS is a commercial software. You may be able to get access to educational version. In case you don’t have access to it, later we outline how to use free packages to read these datasets.</p>
+<ul>
+<li><strong>Step 1</strong>: Inside that ‘SAS_SPSS’ folder, find the file <em>hs_pfe.sas</em>. It is a long file, but we are going to work on part of it. First thing we want to do it to change all the directory names to where you have unzipped the downloaded file (for example, here the zip file was extracted to C:/CCHS/Data/cchs_cycle3-1CD/). We only need the first part of the code (as shown below; only related to data ‘hs’). Delete the rest of the codes for now. The resulting code should like like this:</li>
+</ul>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">%include <span class="st">&quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hs_pfe.sas&quot;</span>;</a>
+<a class="sourceLine" id="cb69-2" title="2"></a>
+<a class="sourceLine" id="cb69-3" title="3">data hs;</a>
+<a class="sourceLine" id="cb69-4" title="4">        %let datafid=<span class="st">&quot;C:\CCHS\Data\cchs_cycle3-1CD\Data\hs.txt&quot;</span>;</a>
+<a class="sourceLine" id="cb69-5" title="5">		%include <span class="st">&quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hs_i.sas&quot;</span>;</a>
+<a class="sourceLine" id="cb69-6" title="6">        %include <span class="st">&quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hs_fmt.sas&quot;</span>;</a>
+<a class="sourceLine" id="cb69-7" title="7">        %include <span class="st">&quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hs_lbe.sas&quot;</span>;</a>
+<a class="sourceLine" id="cb69-8" title="8">run;</a></code></pre></div>
+<p>Once the modifications are done, submit the codes in SAS. Note that, the name of the data is ‘hs’.</p>
+<p><img src="images/abacus14.png" width="65%" /></p>
+<ul>
+<li><strong>Step 2</strong>: Once you submit the code, you can check the log window in SAS to see how the code submission went. It should tell you how many observations and variables were read.</li>
+</ul>
+<p><img src="images/abacus15.png" width="65%" /></p>
+<ul>
+<li><strong>Step 3</strong>: If you one to view the dataset, you can go to ‘Explorer’ window within SAS.</li>
+</ul>
+<p><img src="images/abacus16.png" width="65%" /></p>
+<ul>
+<li><strong>Step 4</strong>: Generally, if you haven’t specified where to load the files, SAS will by default save the data into a library called ‘Work’</li>
+</ul>
+<p><img src="images/abacus17.png" width="65%" /></p>
+<ul>
+<li><strong>Step 5</strong>: Open that folder, and you will be able to find the dataset ‘Hs’.</li>
+</ul>
+<p><img src="images/abacus18.png" width="65%" /></p>
+<ul>
+<li><strong>Step 6</strong>: Right click on the data, and click ‘open’ to view the datafile.</li>
+</ul>
+<p><img src="images/abacus19.png" width="65%" /></p>
+<ul>
+<li><strong>Step 7</strong>: To export the data into a CSV format data (so that we can read this data into other software packages), ckick ‘Menu’.</li>
+</ul>
+<p><img src="images/abacus20.png" width="65%" /></p>
+<ul>
+<li><strong>Step 8</strong>: then press ‘Export Data’.</li>
+</ul>
+<p><img src="images/abacus21.png" width="65%" /></p>
+<ul>
+<li><strong>Step 9</strong>: choose the library and the data.</li>
+</ul>
+<p><img src="images/abacus22.png" width="65%" /></p>
+<ul>
+<li><strong>Step 10</strong>: choose the format in which you may want to save the existing data.</li>
+</ul>
+<p><img src="images/abacus23.png" width="65%" /></p>
+<ul>
+<li><strong>Step 11</strong>: also specify where you want to save the csv file and the name of that file (e.g., cchs3.csv).</li>
+</ul>
+<p><img src="images/abacus24.png" width="65%" /></p>
+<ul>
+<li><strong>Step 12</strong>: go to that directory to see the file cchs3.csv</li>
+</ul>
+<p><img src="images/abacus25.png" width="65%" /></p>
+<ul>
+<li><strong>Step 13</strong>: If you want to save the file in SAS format, you can do so by writing the following sas code into the ‘Editor’ window. Here we are saving the data Hs within the Work library in to a data called cchs3 within the SASLib library. Note that, the directory name has to be where you want to save the output file.</li>
+</ul>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">LIBNAME SASLib <span class="st">&quot;C:\CCHS\Data&quot;</span>;</a>
+<a class="sourceLine" id="cb70-2" title="2">DATA SASLib.cchs3;</a>
+<a class="sourceLine" id="cb70-3" title="3">    set Work.Hs;</a>
+<a class="sourceLine" id="cb70-4" title="4">run;</a></code></pre></div>
+<p>Submit these codes into SAS:</p>
+<p><img src="images/abacus26.png" width="65%" /></p>
+<ul>
+<li><strong>Step 13</strong>: go to that directory to see the file cchs3.sas7dbat</li>
+</ul>
+<p><img src="images/abacus27.png" width="65%" /></p>
+</div>
+<div id="option-2-processing-data-using-pspp-free" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Option 2: Processing data using PSPP (Free)</h3>
+<p>PSPP is a free package; alternative to commercial software SPSS. We can use the same SPSS codes to read the datafile into PSPP, and save.</p>
+<ul>
+<li><strong>Step 1</strong>: Get the free PSPP software from the website: <a href="http://www.gnu.org/software/pspp/">www.gnu.org/software/pspp/</a></li>
+</ul>
+<p><img src="images/abacus30.png" width="65%" /></p>
+<ul>
+<li><strong>Step 2</strong>: Open PSPP</li>
+</ul>
+<p><img src="images/abacus31.png" width="65%" /></p>
+<ul>
+<li><strong>Step 3</strong>: Go to ‘file’ menu and click ‘open’</li>
+</ul>
+<p><img src="images/abacus32.png" width="65%" /></p>
+<ul>
+<li><strong>Step 4</strong>: Specify the <em>readfile.sps</em> file from the ‘SAS_SPSS’ folder.</li>
+</ul>
+<p><img src="images/abacus33.png" width="65%" /></p>
+<ul>
+<li><strong>Step 5</strong>: Similar to before, change the directories as appropriate. Get rid of the extra lines of codes. Resulting codes are as follows:</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">file handle infile<span class="op">/</span>name =<span class="st"> &#39;C:\CCHS\Data\cchs_cycle3-1CD\DATA\hs.txt&#39;</span>.</a>
+<a class="sourceLine" id="cb71-2" title="2">data list file =<span class="st"> </span>infile notable<span class="op">/</span>.</a>
+<a class="sourceLine" id="cb71-3" title="3">include file =<span class="st"> &quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hs_i.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb71-4" title="4">include file =<span class="st"> &quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hsvale.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb71-5" title="5">include file =<span class="st"> &quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hsvare.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb71-6" title="6">include file =<span class="st"> &quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hsmiss.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb71-7" title="7">execute.</a></code></pre></div>
+<p><img src="images/abacus34.png" width="65%" /></p>
+<ul>
+<li><strong>Step 6</strong>: Run the codes.</li>
+</ul>
+<p><img src="images/abacus35.png" width="65%" /></p>
+<ul>
+<li><strong>Step 7</strong>: This is a large data, and will take some time to load the data into the PSPP data editor. Be patient. Once loading is complete, it will show the ‘data view’.</li>
+</ul>
+<p><img src="images/abacus36.png" width="65%" /></p>
+<ul>
+<li><strong>Step 7</strong>: You can also check the ‘variable view’.</li>
+</ul>
+<p><img src="images/abacus37.png" width="65%" /></p>
+<ul>
+<li><strong>Step 8</strong>: Save the data by clicking ‘File’ and then ‘save as …’</li>
+</ul>
+<p><img src="images/abacus38.png" width="65%" /></p>
+<ul>
+<li><strong>Step 9</strong>: Specify the name of the datafile and the location / folder to save the data file.</li>
+</ul>
+<p><img src="images/abacus39.png" width="65%" /></p>
+<ul>
+<li><strong>Step 10</strong>: See the SAV file saved in the directory.</li>
+</ul>
+<p><img src="images/abacus40.png" width="65%" /></p>
+<ul>
+<li><strong>Step 11</strong>: To save CSV format data, use the following syntax.</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">SAVE TRANSLATE</a>
+<a class="sourceLine" id="cb72-2" title="2">  <span class="op">/</span>OUTFILE=<span class="st">&quot;C:/CCHS/Data/cchs3b.csv&quot;</span>  </a>
+<a class="sourceLine" id="cb72-3" title="3">  <span class="op">/</span>TYPE=CSV</a>
+<a class="sourceLine" id="cb72-4" title="4">  <span class="op">/</span>FIELDNAMES      </a>
+<a class="sourceLine" id="cb72-5" title="5">  <span class="op">/</span>CELLS=VALUES.</a></code></pre></div>
+<p>Note that, for categorical data, you can either save values or labels. For our purpose, we prefer values, and hence saved with values here.</p>
+<p><img src="images/abacus41.png" width="65%" /></p>
+<ul>
+<li><strong>Step 12</strong>: See the CSV file saved in the directory extracted from PSPP.</li>
+</ul>
+<p><img src="images/abacus42.png" width="65%" /></p>
+</div>
+</div>
+<div id="processing-data-in-r" class="section level2">
+<h2><span class="header-section-number">4.3</span> Processing data in R</h2>
+<div id="download-software" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Download software</h3>
+<ul>
+<li><strong>Step 1</strong>: Download either ‘R’ from CRAN <a href="https://www.r-project.org/">www.r-project.org</a> or ‘R open’ from Microsoft <a href="https://mran.microsoft.com/open">mran.microsoft.com/open</a></li>
+</ul>
+<p><img src="images/R03.png" width="65%" /></p>
+<p><img src="images/R01.png" width="65%" /></p>
+<ul>
+<li><strong>Step 2</strong>: Download RStudio from <a href="https://www.rstudio.com/">www.rstudio.com/</a></li>
+</ul>
+<p><img src="images/R02.png" width="65%" /></p>
+<ul>
+<li><strong>Step 3</strong>: Open RStudio</li>
+</ul>
+<p><img src="images/R04.png" width="65%" /></p>
+</div>
+<div id="import-export-and-load-data-into-r" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Import, export and load data into R</h3>
+<ul>
+<li><strong>Step 1</strong>: Set working directory</li>
+</ul>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">setwd</span>(<span class="st">&quot;C:/CCHS/Data/&quot;</span>) <span class="co"># or something appropriate</span></a></code></pre></div>
+<ul>
+<li><strong>Step 2</strong>: Read the dataset created from PSPP with cell values. We can also do a small check to see if the cell values are visible. For example, we choose a variable ‘CCCE_05A’, and tabulate it.</li>
+</ul>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">Hs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;cchs3b.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb74-2" title="2"><span class="kw">table</span>(Hs<span class="op">$</span>CCCE_05A)</a></code></pre></div>
+<p><img src="images/abacus46.png" width="65%" /></p>
+<ul>
+<li><strong>Step 3</strong>: Save the RData file from R into a folder <code>SurveyData</code>:</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">save</span>(Hs, <span class="dt">file =</span> <span class="st">&quot;SurveyData/cchs3.RData&quot;</span>)</a></code></pre></div>
+<ul>
+<li><strong>Step 4</strong>: See the RData file saved in the directory extracted from R.</li>
+</ul>
+<p><img src="images/abacus43.png" width="65%" /></p>
+<ul>
+<li><strong>Step 5</strong>: Close R / RStudio and restart it. Environment window within RStudio should be empty.</li>
+</ul>
+<p><img src="images/abacus44.png" width="65%" /></p>
+<ul>
+<li><strong>Step 6</strong>: Load the saved RData into R. Environment window within RStudio should have ‘Hs’ dataset.</li>
+</ul>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">load</span>(<span class="st">&quot;SurveyData/cchs3.RData&quot;</span>)</a></code></pre></div>
+<p><img src="images/abacus45.png" width="65%" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="design-based-approach.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importing-nhanes-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ehsanx/504007-SurveyData/edit/master/importCCHS.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SurveyBook.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

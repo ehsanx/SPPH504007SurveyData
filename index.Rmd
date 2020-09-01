@@ -1,0 +1,41 @@
+--- 
+title: "Survey Data Analysis"
+author: "Ehsan Karim"
+date: "`r Sys.Date()`"
+knit: "bookdown::preview_chapter"
+site: "bookdown::bookdown_site"
+link-citations: yes
+output:
+  bookdown::gitbook: 
+    highlight: tango
+    split_by: chapter
+    split_bib: no
+  bookdown::html_book:
+    theme: simplex  
+  msmbstyle::msmb_html_book:
+    highlight: tango
+    toc: TRUE
+    toc_depth: 1
+    split_by: chapter
+    split_bib: no
+    margin_references: FALSE
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+github-repo: ehsanx/504007-SurveyData
+description: "This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data."
+---
+
+
+```{r setup2, include=FALSE}
+library(tufte)
+library(msmbstyle)
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
+options(htmltools.dir.version = FALSE)
+options(knitr.duplicate.label = "allow")
+```
+
+
+# About this Text
+
+This is the 3rd run of this rather newly developed course. The purpose of this course is to provide students with learning opportunities to understand fundamental epidemiological concepts through the application of methods using population and public health datasets. The purpose is also to introduce students to emerging epidemiological methodologies that are frequently being applied to population and public health-related research questions in prestigious epidemiology journal publications.

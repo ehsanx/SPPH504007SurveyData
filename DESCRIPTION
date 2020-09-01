@@ -1,0 +1,6 @@
+Package: placeholder
+Type: Book
+Title: Application of Epidemiological Methods.
+Version: 0.0.1
+Imports: bookdown
+Remotes: ehsanx/SPPH504-007w20

@@ -1,0 +1,235 @@
+# Model-based Approach {#tab-3}
+
+Review of regression analysis and ANOVA from pre-requisites (+ some extra concepts). Below we see an example of a random data generating process that depends on specification of a probability model. We assume that the population data was generated from a `Normal distribution`, and we are merely dealing with a sample. All our inferences (point estimate or hypothesis testing) will depend on how closely the data fulfill such assumption.  We call such approach as '`model-based`' approach.
+
+```{r setup3, include=FALSE}
+# require(hms)
+# require(reshape2) 
+require(car)
+```
+
+## Example
+
+Does plant weight increase with added nutrition? 
+
+The following problem was taken from Exercise set 2.5 (2.1) from  @dobson2008gml:
+
+> "Genetically similar seeds are randomly assigned to be raised in either a nutritionally enriched environment (treatment group) or standard conditions (control group) using a completely randomized experimental design. After a predetermined time all plants are harvested, dried and weighed."
+
+## Research question
+
+We want to test whether there is any difference in yield (weight) between the two groups 
+
+  * plants from nutritionally enriched environment (treatment group) and 
+  * plants from standard conditions (control group)
+
+### Notations
+
+1. Let $k$ be the index of each plant, and $k = 1,...,20$ for both groups.
+2. Let $j$ be the index for groups. Here, $j = 1$ for the treatment group (`Trt`), $j = 2$ for the control group (`Ctl`).
+3. Let $Y_{jk}$ denote the $k$th observation of weights in the $j$th group.  
+
+### Assumptions
+
+1. Assume that the $Y_{jk}$'s are independent random variables with $Y_{jk} \sim N(\mu_j , \sigma^2)$. 
+2. We also assume that the variances are homogenious, that is, ${\sigma_1}^2$ and ${\sigma_2}^2$ are not very different (and could be pooled to one single value of $\sigma^2$). 
+
+### Hypothesis
+
+The null hypothesis $H_0 : \mu_1 = \mu_2 = \mu$, that there is no difference, is to be compared with the alternative hypothesis $H_1 : \mu_1 \ne \mu_2$. 
+
+## Data
+
+### Data table
+
+```{r rawData, echo=TRUE}
+ctl <- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
+trt <- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
+length(ctl);length(trt)
+group <- rep(c("Ctl","Trt"), each = length(ctl))
+group
+mode(group)
+weight <- c(ctl, trt)
+weight
+mode(weight)
+Plant.Weight.Data <- data.frame(group=group, weight = c(ctl, trt)) 
+mode(Plant.Weight.Data)
+dim(Plant.Weight.Data)
+str(Plant.Weight.Data)
+```
+
+The results, expressed in grams, for 20 plants in each group are shown in the following Table.
+
+```{r rawDataShow, echo=TRUE}
+library(DT)
+datatable(Plant.Weight.Data)
+```
+
+### Visualization
+
+```{r rawDataShow2, echo=TRUE}
+boxplot(weight~ group,data=Plant.Weight.Data)
+weight.means <- aggregate(weight ~  group, data=Plant.Weight.Data, FUN=mean)
+weight.means
+weight.medians <- aggregate(weight ~  group, data=Plant.Weight.Data, FUN=median)
+weight.medians
+points(1:2, weight.means$weight, pch = "*", col = "blue")
+text(c(1:2)+0.25, weight.means$weight, labels = 
+       paste("Mean = ", weight.means$weight), col = "blue")
+text(c(1:2)-0.25, weight.means$weight, labels = 
+       paste("Median = ",weight.medians$weight), col = "black")
+```
+
+Wait: so, plan weight reduces as we add nutrition? How confidently can we say that this added nutrition harmful for the plants (e.g., so that the weight will be reduced)?
+
+## Checking assumptions
+
+Test of normality of the outcomes (Shapiro-Wilk normality test):
+```{r testing1, echo=TRUE}
+shapiro.test(Plant.Weight.Data$weight)
+```
+Therefore, we cannot reject the null hypothesis that samples come from a population which has a normal distribution. Also check a normal quantile-quantile plot:
+```{r testing11, echo=TRUE}
+qqnorm(Plant.Weight.Data$weight)
+qqline(Plant.Weight.Data$weight)
+```
+
+Test of homogeneity of variances, that tests $H_0 : \sigma_1 = \sigma_2$ vs. $H_1 : \sigma_1 \ne \sigma_2$: 
+```{r testing2, echo=TRUE}
+# SD from each groups
+tapply(Plant.Weight.Data$weight, 
+       INDEX = Plant.Weight.Data$group, FUN = sd)
+bartlett.test(weight ~ group, data = Plant.Weight.Data) # Bartlett's test
+# leveneTest(weight ~ group, data = Plant.Weight.Data) # Levene's test
+```
+
+## Analysis
+
+### Two-sample t-test
+
+A two-sample (independent) t-test compares the weights of control and treatment group as follows (assuming equal variance; judging from the IQR from the boxplots or the above Bartlett test):
+```{r simpleAnalysis0, echo=TRUE}
+ttest<- t.test(weight ~ group, data = Plant.Weight.Data, 
+               paired = FALSE, var.equal = TRUE)
+ttest
+```
+Here, we test $H_0 : \mu_1 = \mu_2 = \mu$ vs. $H_1 : \mu_1 \ne \mu_2$. 
+```{r simpleAnalysis011, echo=TRUE}
+ttest$statistic
+```
+
+### Regression
+
+A simple linear model exploring the relationship between the plant weight and the group status can be fitted as follows: 
+```{r simpleAnalysis, echo=TRUE}
+lm.group.including.intercept <- lm(weight ~ 1 + group, data = Plant.Weight.Data)
+lm.group.including.intercept
+lm.group <- lm(weight ~ group, data = Plant.Weight.Data)
+lm.group
+confint(lm.group)
+```
+
+#### Interpretation
+Note that the variable `group` is dummy coded. `R` generally chooses the first category as the reference category.
+```{r simpleAnalysis118, echo=TRUE}
+levels(Plant.Weight.Data$group)
+```
+
+  1. In this case, the intercept `r coef(lm.group)[1]` tells us the predicted mean value for the plant weights for the control group (reference category of the group variable). 
+  2. On the other hand, the slope in interpreted as the expected difference in the mean of the plant weights for that treatment group as compared to the control group. On average, weight is `r abs(coef(lm.group)[2])` units (lb?) lower in plants who are in the treatment condition compared to those in the control condition.
+
+#### Summary of the regression fit
+The complete summary of the results is as follows:
+```{r simpleAnalysisX, echo=TRUE}
+summary(lm.group)
+```
+This is testing a different hypothesis (from the table): $H_0: \alpha = 0$ vs. $H_1: \alpha \ne 0$ ($\alpha$ being the intercept) and $H_0: \beta = 0$ vs. $H_1: \beta \ne 0$ ($\beta$ being the slope). At the bottom of the `summary` output, the `F-statistic` tests $H_0: \beta = 0$ vs. $H_1: \beta \ne 0$. This is an overall, and could accomodate more slopes if the regression had more slopes. E.g., for 2 slopes, this would have tested $H_0: \beta_1 = \beta_2 = 0$.
+
+#### Regression plot
+Let us visualize the scatter plot and the regression line:
+```{r simpleAnalysisplot, echo=TRUE}
+Plant.Weight.Data$group.code <- 
+  ifelse(Plant.Weight.Data$group == "Trt", 1, 0)
+Plant.Weight.Data$group.code
+lm.code <- lm(weight ~ group.code, data = Plant.Weight.Data)
+plot(weight ~ group.code, data = Plant.Weight.Data, 
+     axes = FALSE, xlab = "Groups")
+axis(1, 0:1, levels(Plant.Weight.Data$group))
+axis(2)
+abline(lm.code, col = "blue") # regression line
+abline(h=coef(lm.code)[1], col = "red") # intercept
+```
+
+#### Assumption checking for the residuals
+Checking normality of the residuals:
+```{r simpleAnalysis224, echo=TRUE}
+lm.residual <- residuals(lm.group)
+shapiro.test(lm.residual)
+qqnorm(lm.residual)
+qqline(lm.residual)
+```
+
+#### Null model
+A null model (with only intercept):
+```{r simpleAnalysis22, echo=TRUE}
+lm.null <- lm(weight ~ 1, data = Plant.Weight.Data) # Including just the intercept
+summary(lm.null)
+```
+
+### ANOVA
+
+For testing for the significance of the group membership, we can compare the current model to the null model (is adding the variable `group` in the model useful?). 
+```{r simpleAnalysis1, echo=TRUE}
+anova(lm.null,lm.group)
+```
+
+Or, we could directly test $H_0 : \mu_1 = \mu_2 = \mu$ vs. $H_1 : \mu_1 \ne \mu_2$ under the homogeneity of variances assumption: 
+```{r simpleAnalysis12, echo=TRUE}
+anova(lm.group)
+# Alternate ways to do the same
+# car::Anova(lm.group,type="II")
+aov.fit <- aov(lm.group)
+summary(aov.fit)
+# Multiple pairwise-comparison: 
+# (compare with t-test; same p-value?)
+TukeyHSD(aov.fit) 
+```
+
+Checking normality of the residuals (not run; same as above):
+```{r simpleAnalysis225, echo=TRUE}
+# aov.residual <- residuals(aov.fit)
+# shapiro.test(aov.residual)
+# qqnorm(aov.residual)
+# qqline(aov.residual)
+```
+
+ANOVA is basically a generalization of the two-sample t-test (verify that the calculated $F = t^2$):
+```{r simpleAnalysis2, echo=TRUE}
+ttest$statistic^2
+```
+
+An alternative non-parametric version of this independent 2-sample test is as follows (a Kruskal-Wallis rank sum test):
+```{r simpleAnalysis111, echo=TRUE}
+# Assuming groups come from similar shaped populations:
+kruskal.test(weight ~ group, data = Plant.Weight.Data) 
+```
+
+## Verdict
+
+### Informal conclusion
+With added nutrition, plant weights generally decrease (judging from the point estimate), but such trend could be due to sampling fluctuation (e.g., as the 95% confidence interval includes the null value of 0) and we can not confidently (not at least with 95% confidence) say that adding nutrition will cause plant weights to go down.
+
+### A word of caution
+Note that, we are inherently trying to infer 'causality' out of a statistical analysis, even though our hypothesis is not about 'cause' explicitly. Unfortunately, correlation does not imply causation, and we need to know more about the subject-area and study-design before we make such inference or interpretation.
+
+## Exercises (Optional)
+
+1. What is the difference between a regression analysis with a dummy coded predictor variable vs. an ANOVA?
+2. Was multiple pairwise-comparison (`TukeyHSD`) necessary in the above example?  
+3. Which `R` package includes the `leveneTest` function? (hint: use `help.search()` function.)
+4. Is 'multicollinearity' an issue in the above example?
+5. In the current example, can we interpret the slope as follows: `the change in Y for a 1-unit change in X` where, $Y$ being the outcome and $X$ being the predictor? Why, or why not?
+
+
+
+
