@@ -1,0 +1,40 @@
+\begin{thebibliography}{}
+
+\bibitem[Bilder and Loughin, 2014]{bilder2014analysis}
+Bilder, C.~R. and Loughin, T.~M. (2014).
+\newblock {\em Analysis of categorical data with R}.
+\newblock CRC Press.
+
+\bibitem[{CDC,NCHS}, 2018]{nhanes}
+{CDC,NCHS} (2018).
+\newblock National health and nutrition examination survey data.
+\newblock \url{https://wwwn.cdc.gov/nchs/nhanes/}.
+\newblock [Online; accessed 11-April-2018].
+
+\bibitem[Dobson and Barnett, 2008]{dobson2008gml}
+Dobson, A. and Barnett, A. (2008).
+\newblock {\em An introduction to generalized linear models, third edition}.
+\newblock Chapman and Hall/CRC.
+
+\bibitem[Heeringa et~al., 2017]{heeringa2017applied}
+Heeringa, S.~G., West, B.~T., and Berglund, P.~A. (2017).
+\newblock {\em Applied survey data analysis}.
+\newblock Chapman and Hall/CRC.
+
+\bibitem[Lumley, 2011]{lumley2011complex}
+Lumley, T. (2011).
+\newblock {\em Complex surveys: a guide to analysis using R}, volume 565.
+\newblock John Wiley \& Sons.
+
+\bibitem[Susmann, 2016]{RNHANES}
+Susmann, H. (2016).
+\newblock {\em RNHANES: Facilitates Analysis of CDC NHANES Data}.
+\newblock R package version 1.1.0.
+
+\bibitem[Vittinghoff et~al., 2011]{vittinghoff2011regression}
+Vittinghoff, E., Glidden, D.~V., Shiboski, S.~C., and McCulloch, C.~E. (2011).
+\newblock {\em Regression methods in biostatistics: linear, logistic, survival,
+  and repeated measures models}.
+\newblock Springer Science \& Business Media.
+
+\end{thebibliography}
