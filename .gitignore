@@ -1,6 +1,5 @@
 .Rproj.user
 .Rhistory
-.rdx
-.rdb
 _publish.R
 rsconnect
+SurveyBook_cache/
