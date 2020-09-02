@@ -1,5 +1,5 @@
 --- 
-title: "Survey Data Analysis"
+title: "Survey Data: Design and Examples"
 author: "Ehsan Karim"
 date: "`r Sys.Date()`"
 knit: "bookdown::preview_chapter"
