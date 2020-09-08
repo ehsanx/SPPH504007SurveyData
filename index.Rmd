@@ -44,4 +44,5 @@ options(knitr.duplicate.label = "allow")
 - Canadian Community Health Survey - Annual Component (CCHS)
   - Data import to R
 - National Health and Nutrition Examination Survey (NHANES)
+  - Understanding NHANES data and documentation structure
   - Data import to R

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Importing CCHS to R | Survey Data: Design and Examples</title>
+  <title>Chapter 5 Importing CCHS to R | Survey Data: Design and Examples</title>
   <meta name="description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Importing CCHS to R | Survey Data: Design and Examples" />
+  <meta property="og:title" content="Chapter 5 Importing CCHS to R | Survey Data: Design and Examples" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ehsanx/504007-SurveyData" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Importing CCHS to R | Survey Data: Design and Examples" />
+  <meta name="twitter:title" content="Chapter 5 Importing CCHS to R | Survey Data: Design and Examples" />
   
   <meta name="twitter:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Ehsan Karim" />
 
 
-<meta name="date" content="2020-09-01" />
+<meta name="date" content="2020-09-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="design-based-approach.html"/>
-<link rel="next" href="importing-nhanes-to-r.html"/>
+<link rel="prev" href="potential-data-sources.html"/>
+<link rel="next" href="nhanes-an-introduction.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -135,7 +135,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Survey Data: Part 1</a></li>
+<li><a href="./">Survey Data</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Outline</a></li>
@@ -178,22 +178,35 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>3.4</b> Further readings</a></li>
 <li class="chapter" data-level="3.5" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>4</b> Importing CCHS to R</a><ul>
-<li class="chapter" data-level="4.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>4.1</b> Downloading CCHS data from UBC</a></li>
-<li class="chapter" data-level="4.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>4.2</b> Reading and Formatting the data</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>4.2.1</b> Option 1: Processing data using SAS</a></li>
-<li class="chapter" data-level="4.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>4.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
+<li class="chapter" data-level="4" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>4</b> Potential Data Sources</a></li>
+<li class="chapter" data-level="5" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>5</b> Importing CCHS to R</a><ul>
+<li class="chapter" data-level="5.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>5.1</b> Downloading CCHS data from UBC</a></li>
+<li class="chapter" data-level="5.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>5.2</b> Reading and Formatting the data</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>5.2.1</b> Option 1: Processing data using SAS</a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>5.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>4.3</b> Processing data in R</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>4.3.1</b> Download software</a></li>
-<li class="chapter" data-level="4.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>4.3.2</b> Import, export and load data into R</a></li>
+<li class="chapter" data-level="5.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>5.3</b> Processing data in R</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>5.3.1</b> Download software</a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>5.3.2</b> Import, export and load data into R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>5</b> Importing NHANES to R</a><ul>
-<li class="chapter" data-level="5.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>5.1</b> NHANES Dataset</a></li>
-<li class="chapter" data-level="5.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>5.2</b> Accessing NHANES Data</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>5.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
-<li class="chapter" data-level="5.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>5.2.2</b> Accessing NHANES Data Using R Packages</a></li>
+<li class="chapter" data-level="6" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html"><i class="fa fa-check"></i><b>6</b> NHANES: an introduction</a><ul>
+<li class="chapter" data-level="6.1" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#overview"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#survey-history"><i class="fa fa-check"></i><b>6.2</b> Survey history</a></li>
+<li class="chapter" data-level="6.3" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#nhanes-datafile-and-documents"><i class="fa fa-check"></i><b>6.3</b> NHANES datafile and documents</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#file-format"><i class="fa fa-check"></i><b>6.3.1</b> File format</a></li>
+<li class="chapter" data-level="6.3.2" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#continuous-nhanes-components"><i class="fa fa-check"></i><b>6.3.2</b> Continuous NHANES Components</a></li>
+<li class="chapter" data-level="6.3.3" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#public-release-excludes"><i class="fa fa-check"></i><b>6.3.3</b> Public release excludes</a></li>
+<li class="chapter" data-level="6.3.4" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#combining-data"><i class="fa fa-check"></i><b>6.3.4</b> Combining data</a></li>
+<li class="chapter" data-level="6.3.5" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#missing-data-and-outliers"><i class="fa fa-check"></i><b>6.3.5</b> Missing data and outliers</a></li>
+<li class="chapter" data-level="6.3.6" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#nhanes-documents"><i class="fa fa-check"></i><b>6.3.6</b> NHANES documents</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>7</b> Importing NHANES to R</a><ul>
+<li class="chapter" data-level="7.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>7.1</b> NHANES Dataset</a></li>
+<li class="chapter" data-level="7.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>7.2</b> Accessing NHANES Data</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>7.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
+<li class="chapter" data-level="7.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>7.2.2</b> Accessing NHANES Data Using R Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -218,10 +231,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="importing-cchs-to-r" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Importing CCHS to R</h1>
+<h1><span class="header-section-number">Chapter 5</span> Importing CCHS to R</h1>
 <p>This is a short instruction document of how to get CCHS dataset from the UBC library site to your RStudio environment. Once we bring the dataset into RStudio, the next step is to think about creating analytic dataset.</p>
 <div id="downloading-cchs-data-from-ubc" class="section level2">
-<h2><span class="header-section-number">4.1</span> Downloading CCHS data from UBC</h2>
+<h2><span class="header-section-number">5.1</span> Downloading CCHS data from UBC</h2>
 <ul>
 <li><strong>Step 1</strong>: Go to <a href="http://dvn.library.ubc.ca">dvn.library.ubc.ca</a>, and press ‘log-in’</li>
 </ul>
@@ -276,9 +289,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/abacus13.png" width="65%" /></p>
 </div>
 <div id="reading-and-formatting-the-data" class="section level2">
-<h2><span class="header-section-number">4.2</span> Reading and Formatting the data</h2>
+<h2><span class="header-section-number">5.2</span> Reading and Formatting the data</h2>
 <div id="option-1-processing-data-using-sas" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Option 1: Processing data using SAS</h3>
+<h3><span class="header-section-number">5.2.1</span> Option 1: Processing data using SAS</h3>
 <p>SAS is a commercial software. You may be able to get access to educational version. In case you don’t have access to it, later we outline how to use free packages to read these datasets.</p>
 <ul>
 <li><strong>Step 1</strong>: Inside that ‘SAS_SPSS’ folder, find the file <em>hs_pfe.sas</em>. It is a long file, but we are going to work on part of it. First thing we want to do it to change all the directory names to where you have unzipped the downloaded file (for example, here the zip file was extracted to C:/CCHS/Data/cchs_cycle3-1CD/). We only need the first part of the code (as shown below; only related to data ‘hs’). Delete the rest of the codes for now. The resulting code should like like this:</li>
@@ -352,7 +365,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/abacus27.png" width="65%" /></p>
 </div>
 <div id="option-2-processing-data-using-pspp-free" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Option 2: Processing data using PSPP (Free)</h3>
+<h3><span class="header-section-number">5.2.2</span> Option 2: Processing data using PSPP (Free)</h3>
 <p>PSPP is a free package; alternative to commercial software SPSS. We can use the same SPSS codes to read the datafile into PSPP, and save.</p>
 <ul>
 <li><strong>Step 1</strong>: Get the free PSPP software from the website: <a href="http://www.gnu.org/software/pspp/">www.gnu.org/software/pspp/</a></li>
@@ -422,9 +435,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="processing-data-in-r" class="section level2">
-<h2><span class="header-section-number">4.3</span> Processing data in R</h2>
+<h2><span class="header-section-number">5.3</span> Processing data in R</h2>
 <div id="download-software" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Download software</h3>
+<h3><span class="header-section-number">5.3.1</span> Download software</h3>
 <ul>
 <li><strong>Step 1</strong>: Download either ‘R’ from CRAN <a href="https://www.r-project.org/">www.r-project.org</a> or ‘R open’ from Microsoft <a href="https://mran.microsoft.com/open">mran.microsoft.com/open</a></li>
 </ul>
@@ -440,7 +453,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/R04.png" width="65%" /></p>
 </div>
 <div id="import-export-and-load-data-into-r" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Import, export and load data into R</h3>
+<h3><span class="header-section-number">5.3.2</span> Import, export and load data into R</h3>
 <ul>
 <li><strong>Step 1</strong>: Set working directory</li>
 </ul>
@@ -477,8 +490,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="design-based-approach.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="importing-nhanes-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="potential-data-sources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nhanes-an-introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -500,8 +513,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ehsanx/504007-SurveyData/edit/master/importCCHS.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

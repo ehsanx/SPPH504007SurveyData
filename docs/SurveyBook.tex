@@ -120,7 +120,7 @@
 
 \title{Survey Data: Design and Examples}
 \author{Ehsan Karim}
-\date{2020-09-01}
+\date{2020-09-04}
 
 \begin{document}
 \maketitle
@@ -1019,6 +1019,55 @@ Available via UBC library:
   If any terminology remains unfamiliar, please discuss on Canvas.
 \end{itemize}
 
+\hypertarget{potential-data-sources}{%
+\chapter{Potential Data Sources}\label{potential-data-sources}}
+
+\begin{itemize}
+\tightlist
+\item
+  Canadian Community Health Survey - Annual Component \href{https://www150.statcan.gc.ca/n1/en/catalogue/11-625-X}{CCHS}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Download link \href{http://dvn.library.ubc.ca/}{UBC library}
+  \end{itemize}
+\item
+  National Health and Nutrition Examination Survey \href{https://www.cdc.gov/nchs/nhanes/index.htm}{NHANES}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R packages to download data: \href{https://cran.r-project.org/web/packages/nhanesA/vignettes/Introducing_nhanesA.html}{nhanesA}, \href{https://cran.r-project.org/web/packages/RNHANES/vignettes/introduction.html}{RNHANES}
+  \end{itemize}
+\item
+  National Longitudinal Study of Adolescent to Adult Health {[}Add Health{]}, 1994-2008 \href{http://www.icpsr.umich.edu/icpsrweb/DSDR/studies/21600}{ICPSR 21600}
+\item
+  World Bank Open Data \href{https://data.worldbank.org/}{WBOD}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R packages to download data: \href{https://cran.r-project.org/web/packages/wbstats/vignettes/Using_the_wbstats_package.html}{wbstats}, \href{https://cran.r-project.org/web/packages/WDI/index.html}{WDI}
+  \end{itemize}
+\item
+  European Social Survey \href{http://www.europeansocialsurvey.org/}{ESS}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R package to download data: \href{https://cran.r-project.org/web/packages/essurvey/vignettes/intro_ess.html}{essurvey}
+  \end{itemize}
+\item
+  Behavioral Risk Factor Surveillance System \href{https://www.cdc.gov/brfss/data_documentation/index.htm}{BRFSS}
+\item
+  Bureau of Economic Analysis \href{http://www.bea.gov/}{BEA}
+\item
+  US National Vital Statistics System \href{https://www.cdc.gov/nchs/nvss/vsrr.htm}{NVSS}
+\item
+  Vanderbilt Biostatistics Datasets \href{http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets}{link}
+\end{itemize}
+
 \hypertarget{importing-cchs-to-r}{%
 \chapter{Importing CCHS to R}\label{importing-cchs-to-r}}
 
@@ -1514,6 +1563,124 @@ Note that, for categorical data, you can either save values or labels. For our p
 
 \includegraphics[width=0.65\linewidth]{images/abacus45}
 
+\hypertarget{nhanes-an-introduction}{%
+\chapter{NHANES: an introduction}\label{nhanes-an-introduction}}
+
+\hypertarget{overview}{%
+\section{Overview}\label{overview}}
+
+National Center for Health Statistics (NCHS) has been conducting surveys combining interviews with health/laboratory and physical examination studies since 1959. The end-product, recently known as, National Health and Nutrition Examination Surveys (NHANES) provide cross-sectional data of the health and nutrition of the United States population. This information source has been central to formulating nationwide public health policies and practices.
+
+\hypertarget{survey-history}{%
+\section{Survey history}\label{survey-history}}
+
+Overall NHANES survey history
+
+\includegraphics[width=0.65\linewidth]{images/g1}
+
+\hypertarget{nhanes-datafile-and-documents}{%
+\chapter{NHANES datafile and documents}\label{nhanes-datafile-and-documents}}
+
+\hypertarget{file-format}{%
+\section{File format}\label{file-format}}
+
+The Continuous NHANES files are stored in the NHANES website as SAS transport file formats (.xpt). You can import this data in any statistical package that supports this file format.
+
+\hypertarget{continuous-nhanes-components}{%
+\section{Continuous NHANES Components}\label{continuous-nhanes-components}}
+
+Continuous NHANES \href{https://www.cdc.gov/nchs/tutorials/NHANES/SurveyOrientation/DataStructureContents/Info1.htm}{components} separated to reduce the amount of time to download and documentation size:
+
+\includegraphics[width=0.65\linewidth]{images/g2}
+
+\hypertarget{public-release-excludes}{%
+\section{Public release excludes}\label{public-release-excludes}}
+
+The following data have not been released on the NHANES website as public release files due to confidentiality concerns:
+
+\begin{itemize}
+\tightlist
+\item
+  adolescent data on alcohol use,
+\item
+  smoking,
+\item
+  sexual behavior,
+\item
+  reproductive health and drug use
+\end{itemize}
+
+\hypertarget{combining-data}{%
+\section{Combining data}\label{combining-data}}
+
+\hypertarget{different-cycles}{%
+\subsection{Different cycles}\label{different-cycles}}
+
+It is possible to combine datasets from different years/cycles together in NHANES. However, NHANES is a cross-sectional data, and identification of the same person accross different cycles is not possible in the public resease datasets. For appending data from different cycles, please make sure that the variable names/labels are the same/identical in years under consideration (in some years, names and labels do change).
+
+\hypertarget{within-the-same-cycle}{%
+\subsection{Within the same cycle}\label{within-the-same-cycle}}
+
+Within NHANES datasets in a given cycle, each sampled person has an unique identifier sequence number (variable \texttt{SEQN}) and therefore various data components:
+
+\begin{itemize}
+\tightlist
+\item
+  demographics,
+\item
+  dietary,
+\item
+  examination,
+\item
+  laboratory and
+\item
+  questionnaire
+\end{itemize}
+
+within same cycle can be merged.
+
+\hypertarget{missing-data-and-outliers}{%
+\section{Missing data and outliers}\label{missing-data-and-outliers}}
+
+\citet{CDCfaq} recommends:
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ``As a general rule, if 10\% or less of your data for a variable are missing from your analytic dataset, it is usually acceptable to continue your analysis without further evaluation or adjustment. However, if more than 10\% of the data for a variable are missing, you may need to determine whether the missing values are distributed equally across socio-demographic characteristics, and decide whether further imputation of missing values or use of adjusted weights are necessary.''
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ``If you fail to identify `refusal' or `do not know' as types of missing data, and treat the assigned values for `refused' or `do not know' as real values, you will get distorted results in your statistical analyses. Therefore, it is important to recode `refused' or `don't know' responses as missing values (either as a period (.) for numeric variables or as a blank for character variables).''
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ``Outliers with extremely large weights could have an influential impact on your estimates. You will have to decide whether to keep these influential outliers in your analysis or not. It is up to the analysts to make that decision.''
+\end{enumerate}
+\end{quote}
+
+\hypertarget{nhanes-documents}{%
+\section{NHANES documents}\label{nhanes-documents}}
+
+\includegraphics[width=0.65\linewidth]{images/g3}
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
 \hypertarget{importing-nhanes-to-r}{%
 \chapter{Importing NHANES to R}\label{importing-nhanes-to-r}}
 
@@ -1576,17 +1743,6 @@ NHANES 1999-2000 and onward survey datasets are publicly available at \href{http
 \NormalTok{DEMO <-}\StringTok{ }\KeywordTok{read.xport}\NormalTok{(}\StringTok{"SurveyData}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{DEMO_I.XPT"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'foreign'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:SASxport':
-## 
-##     lookup.xport, read.xport
-\end{verbatim}
 
 \begin{itemize}
 \tightlist

@@ -7,7 +7,7 @@ bookdown::gitbook:
       collapse: subsection
       scroll_highlight: yes
       before: |
-        <li><a href="./">Survey Data: Part 1</a></li>
+        <li><a href="./">Survey Data</a></li>
       after: |
         <li><a href="http://ehsank.com/" target="blank">Author website</a></li>
     download: ["pdf"]

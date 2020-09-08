@@ -4,8 +4,8 @@ language:
   ui:
     chapter_name: "Chapter "
 rmd_files:
-  html: ["index.Rmd", "review.Rmd", "designBased.Rmd", "importCCHS.Rmd",
-  "importNHANES.Rmd", "references.Rmd"]
-  latex: ["index.Rmd", "review.Rmd", "designBased.Rmd", "importCCHS.Rmd",
-  "importNHANES.Rmd", "references.Rmd"]
+  html: ["index.Rmd", "review.Rmd", "designBased.Rmd", "examples.Rmd", "importCCHS.Rmd",
+  "demystifyingNHANES.Rmd", "importNHANES.Rmd", "references.Rmd"]
+  latex: ["index.Rmd", "review.Rmd", "designBased.Rmd", "examples.Rmd", "importCCHS.Rmd",
+  "demystifyingNHANES.Rmd","importNHANES.Rmd", "references.Rmd"]
 delete_merged_file: true
