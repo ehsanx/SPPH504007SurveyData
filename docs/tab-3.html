@@ -24,7 +24,7 @@
 <meta name="author" content="Ehsan Karim" />
 
 
-<meta name="date" content="2020-09-04" />
+<meta name="date" content="2020-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -175,10 +175,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#design-features"><i class="fa fa-check"></i><b>3.3.1</b> Design features</a></li>
 <li class="chapter" data-level="3.3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-effect"><i class="fa fa-check"></i><b>3.3.2</b> Design effect</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>3.4</b> Further readings</a></li>
-<li class="chapter" data-level="3.5" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a></li>
+<li class="chapter" data-level="3.4" data-path="design-based-approach.html"><a href="design-based-approach.html#other-ideas"><i class="fa fa-check"></i><b>3.4</b> Other ideas</a></li>
+<li class="chapter" data-level="3.5" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>3.5</b> Further readings</a></li>
+<li class="chapter" data-level="3.6" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>3.6</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>4</b> Potential Data Sources</a></li>
+<li class="chapter" data-level="4" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>4</b> Potential Data Sources</a><ul>
+<li class="chapter" data-level="4.1" data-path="potential-data-sources.html"><a href="potential-data-sources.html#survey-data-with-features"><i class="fa fa-check"></i><b>4.1</b> Survey data with features</a></li>
+<li class="chapter" data-level="4.2" data-path="potential-data-sources.html"><a href="potential-data-sources.html#others"><i class="fa fa-check"></i><b>4.2</b> Others</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>5</b> Importing CCHS to R</a><ul>
 <li class="chapter" data-level="5.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>5.1</b> Downloading CCHS data from UBC</a></li>
 <li class="chapter" data-level="5.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>5.2</b> Reading and Formatting the data</a><ul>
@@ -201,6 +205,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.5" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#missing-data-and-outliers"><i class="fa fa-check"></i><b>6.3.5</b> Missing data and outliers</a></li>
 <li class="chapter" data-level="6.3.6" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#nhanes-documents"><i class="fa fa-check"></i><b>6.3.6</b> NHANES documents</a></li>
 </ul></li>
+<li class="chapter" data-level="6.4" data-path="nhanes-an-introduction.html"><a href="nhanes-an-introduction.html#exercise-web"><i class="fa fa-check"></i><b>6.4</b> Exercise (web)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>7</b> Importing NHANES to R</a><ul>
 <li class="chapter" data-level="7.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>7.1</b> NHANES Dataset</a></li>
@@ -302,8 +307,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">library</span>(DT)</a></code></pre></div>
 <pre><code>## Warning: package &#39;DT&#39; was built under R version 4.0.2</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">datatable</span>(Plant.Weight.Data)</a></code></pre></div>
-<div id="htmlwidget-5887cbcce49e4d3c3586" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5887cbcce49e4d3c3586">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt"],[4.17,5.58,5.18,6.11,4.5,4.61,5.17,4.53,5.33,5.14,4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-48458791d55b6f10b737" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-48458791d55b6f10b737">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt"],[4.17,5.58,5.18,6.11,4.5,4.61,5.17,4.53,5.33,5.14,4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="visualization" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Visualization</h3>
@@ -406,8 +411,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="interpretation" class="section level4">
 <h4><span class="header-section-number">2.5.2.1</span> Interpretation</h4>
 <p>Note that the variable <code>group</code> is dummy coded. <code>R</code> generally chooses the first category as the reference category.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">levels</span>(Plant.Weight.Data<span class="op">$</span>group)</a></code></pre></div>
-<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">levels</span>(<span class="kw">as.factor</span>(Plant.Weight.Data<span class="op">$</span>group))</a></code></pre></div>
+<pre><code>## [1] &quot;Ctl&quot; &quot;Trt&quot;</code></pre>
 <ol style="list-style-type: decimal">
 <li>In this case, the intercept 5.032 tells us the predicted mean value for the plant weights for the control group (reference category of the group variable).</li>
 <li>On the other hand, the slope in interpreted as the expected difference in the mean of the plant weights for that treatment group as compared to the control group. On average, weight is 0.371 units (lb?) lower in plants who are in the treatment condition compared to those in the control condition.</li>

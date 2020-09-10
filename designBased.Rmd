@@ -56,21 +56,24 @@ knitr::include_graphics("images/sampling0.png")
 
 Example: Let us consider CCHS.
 
-- Target population
+- Target population: You think about a `target population` in you PICOT. 
     - Canadian population 12 years of age and over
-- Sampling Frame
+- Sampling Frame: But all of your target population may not belong to a `sampling frame` compiled by a government. 
     - Canadian population 12 years of age and over exluding about 3% population (e.g., aboriginal settlements, canadian Forces, institutionalized, foster care, 2 selected Quebec health regions)
-- Active Frame
-    - People that are still reachable e.g., not dead or have not moved
+- Active Frame: People that are still reachable
+    - E.g., not dead or have not moved
 - Sampling list
-    - Prepared from a specific sampling technique
-- Actual sample
-    - people that have responded
+    - Prepared from a specific sampling technique (SRS, stratified, cluster, complex)
+- Actual sample: people that have responded
+    - some don't respond
 
-Note that, results from 'actual sample' can be generalized to the 'active frame'. Hence, an inference from a sample in not really generalizable to the target population (strictly speaking).
+Note that, results from 'actual sample' are generalized to the 'active frame'. An inference from a sample may not really be generalizable to the target population (strictly speaking).
 
 
 ### Types of sampling techniques
+
+- Probability
+- Non-probability
 
 ```{r sampling1, echo=FALSE,cache=use.saved.chche}
 sampling1 <- grViz("
@@ -112,7 +115,6 @@ sampling1 %>% export_svg %>% charToRaw %>% rsvg %>% png::writePNG("images/sampli
 ```{r sampling1x, echo=FALSE, out.width = '85%'}
 knitr::include_graphics("images/sampling1.png")
 ```
-
 
 
 ## Statistical inference
@@ -208,15 +210,28 @@ knitr::include_graphics("images/design2.png")
 
 Considering sub-groups that are sufficiently different from each other with respect to characteristics. Usual examples:
 
-- different geographical location
-- income
+- different geographical location: Manitoba vs. Nunavut
+- high income vs. low income
 - gender
 
 For each stratum (single unit), sampling is done separately. As we can select sample size from each stratum, we are able to control for variability of the estimates (`SE`) from each strata as well.
 
+```{r StratifiedRandomSampling, echo=FALSE, out.width = '85%'}
+knitr::include_graphics("images/StratifiedRandomSampling.jpg")
+```
+
+Source: [link](https://en.wikipedia.org/wiki/Stratified_sampling)
+
 #### Clustering
 
-Clustering is done for convenience of data collection, generally. In a nationwide survey, researchers may choose to collect more samples from selected geographic locations. This is generally the case for cost considerations. In doing so, the surveyers don't have to travel too far, as they could essentially get many neighboring subjects at a much lower cost. An obvious consequence could be that the neighboring subjects may be more correlated with each other compared to subjects who are selected by randomness. This may cause the observations not being independent anymore.
+Clustering is done for convenience of data collection, generally. In a nationwide survey, researchers may choose to collect more samples from selected geographic locations. This is generally the case for cost considerations. In doing so, the surveyers don't have to travel too far, as they could essentially get many neighboring subjects at a much lower cost. An obvious consequence could be that the neighboring subjects may be more `correlated with each other` compared to subjects who are selected by randomness. This may cause the observations not being `independent` anymore.
+
+```{r ClusterSampling, echo=FALSE, out.width = '85%'}
+knitr::include_graphics("images/ClusterSampling.jpg")
+```
+
+Source: [link](https://en.wikipedia.org/wiki/Cluster_sampling)
+
 
 #### Weighting
 
@@ -235,6 +250,11 @@ Compared to a SRS, all of the design features of a complex survey, such as, stra
 
 $DE^2 = \frac{SE^2_{Complex.Survey}}{SE^2_{SRS}}$.
 
+## Other ideas
+
+- [Oversampling](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module2.aspx)
+
+
 ## Further readings
 
 Available via UBC library:
@@ -248,5 +268,4 @@ Available via UBC library:
 
 - Skim through the first chapter (from the further readings list). Should be easier to read most of it after this lecture.
 - If any terminology remains unfamiliar, please discuss on Canvas.
-
 

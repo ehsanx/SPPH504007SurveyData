@@ -208,3 +208,7 @@ g3 %>% export_svg %>% charToRaw %>% rsvg %>% png::writePNG("images/g3.png")
 knitr::include_graphics("images/g3.png")
 ```
 
+## Exercise (web)
+
+- More information about [NHANES design](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module2.aspx)
+- Visit [US CDC](https://wwwn.cdc.gov/Nchs/Nhanes/search/) and do a variable keyword search based on your research interest (e.g., arthritis).

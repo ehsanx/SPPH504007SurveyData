@@ -132,7 +132,7 @@ confint(lm.group)
 #### Interpretation
 Note that the variable `group` is dummy coded. `R` generally chooses the first category as the reference category.
 ```{r simpleAnalysis118, echo=TRUE}
-levels(Plant.Weight.Data$group)
+levels(as.factor(Plant.Weight.Data$group))
 ```
 
   1. In this case, the intercept `r coef(lm.group)[1]` tells us the predicted mean value for the plant weights for the control group (reference category of the group variable). 

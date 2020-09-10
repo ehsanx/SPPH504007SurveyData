@@ -120,7 +120,7 @@
 
 \title{Survey Data: Design and Examples}
 \author{Ehsan Karim}
-\date{2020-09-04}
+\date{2020-09-09}
 
 \begin{document}
 \maketitle
@@ -153,6 +153,8 @@
 
   \begin{itemize}
   \tightlist
+  \item
+    Understanding NHANES data and documentation structure
   \item
     Data import to R
   \end{itemize}
@@ -547,12 +549,12 @@ Note that the variable \texttt{group} is dummy coded. \texttt{R} generally choos
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{levels}\NormalTok{(Plant.Weight.Data}\OperatorTok{$}\NormalTok{group)}
+\KeywordTok{levels}\NormalTok{(}\KeywordTok{as.factor}\NormalTok{(Plant.Weight.Data}\OperatorTok{$}\NormalTok{group))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## NULL
+## [1] "Ctl" "Trt"
 \end{verbatim}
 
 \begin{enumerate}
@@ -850,7 +852,7 @@ Example: Let us consider CCHS.
 \begin{itemize}
 \tightlist
 \item
-  Target population
+  Target population: You think about a \texttt{target\ population} in you PICOT.
 
   \begin{itemize}
   \tightlist
@@ -858,7 +860,7 @@ Example: Let us consider CCHS.
     Canadian population 12 years of age and over
   \end{itemize}
 \item
-  Sampling Frame
+  Sampling Frame: But all of your target population may not belong to a \texttt{sampling\ frame} compiled by a government.
 
   \begin{itemize}
   \tightlist
@@ -866,12 +868,12 @@ Example: Let us consider CCHS.
     Canadian population 12 years of age and over exluding about 3\% population (e.g., aboriginal settlements, canadian Forces, institutionalized, foster care, 2 selected Quebec health regions)
   \end{itemize}
 \item
-  Active Frame
+  Active Frame: People that are still reachable
 
   \begin{itemize}
   \tightlist
   \item
-    People that are still reachable e.g., not dead or have not moved
+    E.g., not dead or have not moved
   \end{itemize}
 \item
   Sampling list
@@ -879,22 +881,30 @@ Example: Let us consider CCHS.
   \begin{itemize}
   \tightlist
   \item
-    Prepared from a specific sampling technique
+    Prepared from a specific sampling technique (SRS, stratified, cluster, complex)
   \end{itemize}
 \item
-  Actual sample
+  Actual sample: people that have responded
 
   \begin{itemize}
   \tightlist
   \item
-    people that have responded
+    some don't respond
   \end{itemize}
 \end{itemize}
 
-Note that, results from `actual sample' can be generalized to the `active frame'. Hence, an inference from a sample in not really generalizable to the target population (strictly speaking).
+Note that, results from `actual sample' are generalized to the `active frame'. An inference from a sample may not really be generalizable to the target population (strictly speaking).
 
 \hypertarget{types-of-sampling-techniques}{%
 \subsection{Types of sampling techniques}\label{types-of-sampling-techniques}}
+
+\begin{itemize}
+\tightlist
+\item
+  Probability
+\item
+  Non-probability
+\end{itemize}
 
 \includegraphics[width=0.85\linewidth]{images/sampling1}
 
@@ -953,19 +963,27 @@ Considering sub-groups that are sufficiently different from each other with resp
 \begin{itemize}
 \tightlist
 \item
-  different geographical location
+  different geographical location: Manitoba vs.~Nunavut
 \item
-  income
+  high income vs.~low income
 \item
   gender
 \end{itemize}
 
 For each stratum (single unit), sampling is done separately. As we can select sample size from each stratum, we are able to control for variability of the estimates (\texttt{SE}) from each strata as well.
 
+\includegraphics[width=0.85\linewidth]{images/StratifiedRandomSampling}
+
+Source: \href{https://en.wikipedia.org/wiki/Stratified_sampling}{link}
+
 \hypertarget{clustering}{%
 \subsubsection{Clustering}\label{clustering}}
 
-Clustering is done for convenience of data collection, generally. In a nationwide survey, researchers may choose to collect more samples from selected geographic locations. This is generally the case for cost considerations. In doing so, the surveyers don't have to travel too far, as they could essentially get many neighboring subjects at a much lower cost. An obvious consequence could be that the neighboring subjects may be more correlated with each other compared to subjects who are selected by randomness. This may cause the observations not being independent anymore.
+Clustering is done for convenience of data collection, generally. In a nationwide survey, researchers may choose to collect more samples from selected geographic locations. This is generally the case for cost considerations. In doing so, the surveyers don't have to travel too far, as they could essentially get many neighboring subjects at a much lower cost. An obvious consequence could be that the neighboring subjects may be more \texttt{correlated\ with\ each\ other} compared to subjects who are selected by randomness. This may cause the observations not being \texttt{independent} anymore.
+
+\includegraphics[width=0.85\linewidth]{images/ClusterSampling}
+
+Source: \href{https://en.wikipedia.org/wiki/Cluster_sampling}{link}
 
 \hypertarget{weighting}{%
 \subsubsection{Weighting}\label{weighting}}
@@ -990,6 +1008,15 @@ In a complex survey, where we have stratification and clustering, this weight is
 Compared to a SRS, all of the design features of a complex survey, such as, stratification, cluster sampling, and weighting generally influence the SEs of the estimates. Survey researchers use a ratio called design effect, to account for the difference in SEs between a complex survey versus a SRS:
 
 \(DE^2 = \frac{SE^2_{Complex.Survey}}{SE^2_{SRS}}\).
+
+\hypertarget{other-ideas}{%
+\section{Other ideas}\label{other-ideas}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://wwwn.cdc.gov/nchs/nhanes/tutorials/module2.aspx}{Oversampling}
+\end{itemize}
 
 \hypertarget{further-readings}{%
 \section{Further readings}\label{further-readings}}
@@ -1022,6 +1049,9 @@ Available via UBC library:
 \hypertarget{potential-data-sources}{%
 \chapter{Potential Data Sources}\label{potential-data-sources}}
 
+\hypertarget{survey-data-with-features}{%
+\section{Survey data with features}\label{survey-data-with-features}}
+
 \begin{itemize}
 \tightlist
 \item
@@ -1043,14 +1073,6 @@ Available via UBC library:
 \item
   National Longitudinal Study of Adolescent to Adult Health {[}Add Health{]}, 1994-2008 \href{http://www.icpsr.umich.edu/icpsrweb/DSDR/studies/21600}{ICPSR 21600}
 \item
-  World Bank Open Data \href{https://data.worldbank.org/}{WBOD}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    R packages to download data: \href{https://cran.r-project.org/web/packages/wbstats/vignettes/Using_the_wbstats_package.html}{wbstats}, \href{https://cran.r-project.org/web/packages/WDI/index.html}{WDI}
-  \end{itemize}
-\item
   European Social Survey \href{http://www.europeansocialsurvey.org/}{ESS}
 
   \begin{itemize}
@@ -1064,8 +1086,23 @@ Available via UBC library:
   Bureau of Economic Analysis \href{http://www.bea.gov/}{BEA}
 \item
   US National Vital Statistics System \href{https://www.cdc.gov/nchs/nvss/vsrr.htm}{NVSS}
+\end{itemize}
+
+\hypertarget{others}{%
+\section{Others}\label{others}}
+
+\begin{itemize}
+\tightlist
 \item
   Vanderbilt Biostatistics Datasets \href{http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets}{link}
+\item
+  World Bank Open Data \href{https://data.worldbank.org/}{WBOD}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R packages to download data: \href{https://cran.r-project.org/web/packages/wbstats/vignettes/Using_the_wbstats_package.html}{wbstats}, \href{https://cran.r-project.org/web/packages/WDI/index.html}{WDI}
+  \end{itemize}
 \end{itemize}
 
 \hypertarget{importing-cchs-to-r}{%
@@ -1579,22 +1616,22 @@ Overall NHANES survey history
 \includegraphics[width=0.65\linewidth]{images/g1}
 
 \hypertarget{nhanes-datafile-and-documents}{%
-\chapter{NHANES datafile and documents}\label{nhanes-datafile-and-documents}}
+\section{NHANES datafile and documents}\label{nhanes-datafile-and-documents}}
 
 \hypertarget{file-format}{%
-\section{File format}\label{file-format}}
+\subsection{File format}\label{file-format}}
 
 The Continuous NHANES files are stored in the NHANES website as SAS transport file formats (.xpt). You can import this data in any statistical package that supports this file format.
 
 \hypertarget{continuous-nhanes-components}{%
-\section{Continuous NHANES Components}\label{continuous-nhanes-components}}
+\subsection{Continuous NHANES Components}\label{continuous-nhanes-components}}
 
 Continuous NHANES \href{https://www.cdc.gov/nchs/tutorials/NHANES/SurveyOrientation/DataStructureContents/Info1.htm}{components} separated to reduce the amount of time to download and documentation size:
 
 \includegraphics[width=0.65\linewidth]{images/g2}
 
 \hypertarget{public-release-excludes}{%
-\section{Public release excludes}\label{public-release-excludes}}
+\subsection{Public release excludes}\label{public-release-excludes}}
 
 The following data have not been released on the NHANES website as public release files due to confidentiality concerns:
 
@@ -1611,15 +1648,15 @@ The following data have not been released on the NHANES website as public releas
 \end{itemize}
 
 \hypertarget{combining-data}{%
-\section{Combining data}\label{combining-data}}
+\subsection{Combining data}\label{combining-data}}
 
 \hypertarget{different-cycles}{%
-\subsection{Different cycles}\label{different-cycles}}
+\subsubsection{Different cycles}\label{different-cycles}}
 
 It is possible to combine datasets from different years/cycles together in NHANES. However, NHANES is a cross-sectional data, and identification of the same person accross different cycles is not possible in the public resease datasets. For appending data from different cycles, please make sure that the variable names/labels are the same/identical in years under consideration (in some years, names and labels do change).
 
 \hypertarget{within-the-same-cycle}{%
-\subsection{Within the same cycle}\label{within-the-same-cycle}}
+\subsubsection{Within the same cycle}\label{within-the-same-cycle}}
 
 Within NHANES datasets in a given cycle, each sampled person has an unique identifier sequence number (variable \texttt{SEQN}) and therefore various data components:
 
@@ -1640,7 +1677,7 @@ Within NHANES datasets in a given cycle, each sampled person has an unique ident
 within same cycle can be merged.
 
 \hypertarget{missing-data-and-outliers}{%
-\section{Missing data and outliers}\label{missing-data-and-outliers}}
+\subsection{Missing data and outliers}\label{missing-data-and-outliers}}
 
 \citet{CDCfaq} recommends:
 
@@ -1674,12 +1711,20 @@ within same cycle can be merged.
 \end{quote}
 
 \hypertarget{nhanes-documents}{%
-\section{NHANES documents}\label{nhanes-documents}}
+\subsection{NHANES documents}\label{nhanes-documents}}
 
 \includegraphics[width=0.65\linewidth]{images/g3}
 
-\hypertarget{references}{%
-\chapter{References}\label{references}}
+\hypertarget{exercise-web}{%
+\section{Exercise (web)}\label{exercise-web}}
+
+\begin{itemize}
+\tightlist
+\item
+  More information about \href{https://wwwn.cdc.gov/nchs/nhanes/tutorials/module2.aspx}{NHANES design}
+\item
+  Visit \href{https://wwwn.cdc.gov/Nchs/Nhanes/search/}{US CDC} and do a variable keyword search based on your research interest (e.g., arthritis).
+\end{itemize}
 
 \hypertarget{importing-nhanes-to-r}{%
 \chapter{Importing NHANES to R}\label{importing-nhanes-to-r}}
@@ -1743,6 +1788,17 @@ NHANES 1999-2000 and onward survey datasets are publicly available at \href{http
 \NormalTok{DEMO <-}\StringTok{ }\KeywordTok{read.xport}\NormalTok{(}\StringTok{"SurveyData}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{DEMO_I.XPT"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'foreign'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:SASxport':
+## 
+##     lookup.xport, read.xport
+\end{verbatim}
 
 \begin{itemize}
 \tightlist
