@@ -10,7 +10,7 @@ library(png)
 use.saved.chche <- TRUE
 ```
 
-# NHANES: an introduction 
+# Demystifying NHANES
 
 ## Overview
 

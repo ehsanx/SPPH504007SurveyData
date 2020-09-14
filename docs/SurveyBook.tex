@@ -120,7 +120,7 @@
 
 \title{Survey Data: Design and Examples}
 \author{Ehsan Karim}
-\date{2020-09-09}
+\date{2020-09-14}
 
 \begin{document}
 \maketitle
@@ -1119,7 +1119,7 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
   \textbf{Step 1}: Go to \href{http://dvn.library.ubc.ca}{dvn.library.ubc.ca}, and press `log-in'
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus1}
+\includegraphics[width=0.65\linewidth]{images/abacusX1}
 
 \begin{itemize}
 \tightlist
@@ -1127,7 +1127,7 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
   \textbf{Step 2}: Select `UBC' from the dropdown menu
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus2}
+\includegraphics[width=0.65\linewidth]{images/abacusX2}
 
 \begin{itemize}
 \tightlist
@@ -1143,15 +1143,15 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
   \textbf{Step 4}: Once you log-in, search the term `cchs' in the search-box
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus4}
+\includegraphics[width=0.65\linewidth]{images/abacusX4}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Step 5}: For illustrative purposes, let us work with the Cycle 3.1 of the CCHS dataset from the list of results
+  \textbf{Step 5}: For illustrative purposes, let us work with the Cycle 3.1 of the CCHS dataset from the list of results. In that case, type `cchs 3.1'
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus5}
+\includegraphics[width=0.65\linewidth]{images/abacusX5}
 
 \begin{itemize}
 \tightlist
@@ -1159,15 +1159,15 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
   \textbf{Step 6}: CCHS Cycle 3.1 information
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus6}
+\includegraphics[width=0.65\linewidth]{images/abacus6X}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Step 7}: Choose the `Data and Analysis' tab
+  \textbf{Step 7}: Choose the `Data: CD' from the menu
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus7}
+\includegraphics[width=0.65\linewidth]{images/abacusX7}
 
 \begin{itemize}
 \tightlist
@@ -1175,7 +1175,7 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
   \textbf{Step 8}: Download the entire data (about 159 MB) as a zip file
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus8}
+\includegraphics[width=0.65\linewidth]{images/abacusX8}
 
 \begin{itemize}
 \tightlist
@@ -1183,15 +1183,21 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
   \textbf{Step 9}: Accept the `terms of use'
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus9}
+\includegraphics[width=0.65\linewidth]{images/abacusX9}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Step 10}: Select a directory to download the zip file
+  \textbf{Step 10}: Select a directory to download the zip file. The path of the download directory is important (we need to use this \texttt{path} exactly later). For example, below we are in \texttt{"C:\textbackslash{}CCHS\textbackslash{}"} folder, but we will create a ``Data'' folder there, so that the download path is \texttt{"C:\textbackslash{}CCHS\textbackslash{}Data\textbackslash{}"}.
 \end{itemize}
 
-\includegraphics[width=0.65\linewidth]{images/abacus10}
+\includegraphics[width=0.65\linewidth]{images/abacusX10}
+
+\includegraphics[width=0.65\linewidth]{images/abacusX10b}
+
+\includegraphics[width=0.65\linewidth]{images/abacusX10c}
+
+\includegraphics[width=0.65\linewidth]{images/abacusX10d}
 
 \begin{itemize}
 \tightlist
@@ -1374,7 +1380,29 @@ PSPP is a free package; alternative to commercial software SPSS. We can use the 
   \textbf{Step 1}: Get the free PSPP software from the website: \href{http://www.gnu.org/software/pspp/}{www.gnu.org/software/pspp/}
 \end{itemize}
 
+PSPP is available for GNU/Hurd, GNU/Linux, Darwin (Mac OS X), OpenBSD, NetBSD, FreeBSD, and Windows
+
 \includegraphics[width=0.65\linewidth]{images/abacus30}
+
+For windows, download appropriate version.
+
+\includegraphics[width=0.65\linewidth]{images/psppdownload0}
+
+Download the file
+
+\includegraphics[width=0.65\linewidth]{images/psppdownload}
+
+Install
+
+\includegraphics[width=0.65\linewidth]{images/psppinstall}
+
+\includegraphics[width=0.65\linewidth]{images/psppinstall2}
+
+\includegraphics[width=0.65\linewidth]{images/psppinstall3}
+
+Click the icon shorcut after installing
+
+\includegraphics[width=0.65\linewidth]{images/psppicon}
 
 \begin{itemize}
 \tightlist
@@ -1400,10 +1428,14 @@ PSPP is a free package; alternative to commercial software SPSS. We can use the 
 
 \includegraphics[width=0.65\linewidth]{images/abacus33}
 
+You will see the following file:
+
+\includegraphics[width=0.65\linewidth]{images/abacusX33}
+
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Step 5}: Similar to before, change the directories as appropriate. Get rid of the extra lines of codes. Resulting codes are as follows:
+  \textbf{Step 5}: Similar to before, change the directories as appropriate. Get rid of the extra lines of codes. Resulting codes are as follows (you can copy and replace the code in the file with the following codes):
 \end{itemize}
 
 \begin{Shaded}
@@ -1418,7 +1450,7 @@ PSPP is a free package; alternative to commercial software SPSS. We can use the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.65\linewidth]{images/abacus34}
+\includegraphics[width=0.65\linewidth]{images/abacusX34}
 
 \begin{itemize}
 \tightlist
@@ -1431,10 +1463,14 @@ PSPP is a free package; alternative to commercial software SPSS. We can use the 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Step 7}: This is a large data, and will take some time to load the data into the PSPP data editor. Be patient. Once loading is complete, it will show the `data view'.
+  \textbf{Step 7}: This is a large data, and will take some time to load the data into the PSPP data editor. \textbf{Be patient}. Once loading is complete, it will show the `output' and `data view'.
 \end{itemize}
 
+\includegraphics[width=0.65\linewidth]{images/abacusNew}
+
 \includegraphics[width=0.65\linewidth]{images/abacus36}
+
+Note that, you will get error message, if your files were not in the correct path. In our example, the path was \texttt{"C:\textbackslash{}CCHS\textbackslash{}Data\textbackslash{}"} for the zip file content (see the previous steps).
 
 \begin{itemize}
 \tightlist
@@ -1600,8 +1636,8 @@ Note that, for categorical data, you can either save values or labels. For our p
 
 \includegraphics[width=0.65\linewidth]{images/abacus45}
 
-\hypertarget{nhanes-an-introduction}{%
-\chapter{NHANES: an introduction}\label{nhanes-an-introduction}}
+\hypertarget{demystifying-nhanes}{%
+\chapter{Demystifying NHANES}\label{demystifying-nhanes}}
 
 \hypertarget{overview}{%
 \section{Overview}\label{overview}}

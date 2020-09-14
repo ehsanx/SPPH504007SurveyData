@@ -7,13 +7,13 @@ This is a short instruction document of how to get CCHS dataset from the UBC lib
 * **Step 1**: Go to [dvn.library.ubc.ca](http://dvn.library.ubc.ca), and press 'log-in'
 
 ```{r ubc1, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus1.png")
+knitr::include_graphics("images/abacusX1.png")
 ```
 
 * **Step 2**: Select 'UBC' from the dropdown menu
 
 ```{r ubc2, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus2.png")
+knitr::include_graphics("images/abacusX2.png")
 ```
 
 * **Step 3**: Enter your CWL or UBC library authentication information
@@ -25,43 +25,56 @@ knitr::include_graphics("images/abacus3.png")
 * **Step 4**: Once you log-in, search the term 'cchs' in the search-box
 
 ```{r ubc4, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus4.png")
+knitr::include_graphics("images/abacusX4.png")
 ```
 
-* **Step 5**: For illustrative purposes, let us work with the Cycle 3.1 of the CCHS dataset from the list of results
+* **Step 5**: For illustrative purposes, let us work with the Cycle 3.1 of the CCHS dataset from the list of results. In that case, type 'cchs 3.1'
 
 ```{r ubc5, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus5.png")
+knitr::include_graphics("images/abacusX5.png")
 ```
 
 * **Step 6**: CCHS Cycle 3.1 information
 
 ```{r ubc6, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus6.png")
+knitr::include_graphics("images/abacus6X.png")
 ```
 
-* **Step 7**: Choose the 'Data and Analysis' tab
+* **Step 7**: Choose the 'Data: CD' from the menu
 
 ```{r ubc7, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus7.png")
+knitr::include_graphics("images/abacusX7.png")
 ```
 
 * **Step 8**: Download the entire data (about 159 MB) as a zip file
 
 ```{r ubc8, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus8.png")
+knitr::include_graphics("images/abacusX8.png")
 ```
 
 * **Step 9**: Accept the 'terms of use'
 
 ```{r ubc9, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus9.png")
+knitr::include_graphics("images/abacusX9.png")
 ```
 
-* **Step 10**: Select a directory to download the zip file
+* **Step 10**: Select a directory to download the zip file. The path of the download directory is important (we need to use this `path` exactly later). For example, below we are in ```"C:\CCHS\"``` folder, but we will create a "Data" folder there, so that the download path is ```"C:\CCHS\Data\"```.
 
 ```{r ubc10, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus10.png")
+knitr::include_graphics("images/abacusX10.png")
+```
+
+```{r ubc10b, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/abacusX10b.png")
+```
+
+```{r ubc10c, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/abacusX10c.png")
+```
+
+
+```{r ubc10d, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/abacusX10d.png")
 ```
 
 * **Step 11**: Extract the zip file
@@ -193,9 +206,44 @@ PSPP is a free package; alternative to commercial software SPSS. We can use the 
 
 * **Step 1**: Get the free PSPP software from the website: [www.gnu.org/software/pspp/](http://www.gnu.org/software/pspp/)
 
+PSPP is available for GNU/Hurd, GNU/Linux, Darwin (Mac OS X), OpenBSD, NetBSD, FreeBSD, and Windows
+
 ```{r ubc30, echo=FALSE, out.width = '65%'}
 knitr::include_graphics("images/abacus30.png")
 ```
+
+For windows, download appropriate version. 
+
+```{r ubc30aa, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/psppdownload0.png")
+```
+
+Download the file
+
+```{r ubc30ab, echo=FALSE, out.width = '25%'}
+knitr::include_graphics("images/psppdownload.png")
+```
+
+Install
+
+```{r ubc30install, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/psppinstall.png")
+```
+
+```{r ubc30install2, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/psppinstall2.png")
+```
+
+```{r ubc30install3, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/psppinstall3.png")
+```
+
+Click the icon shorcut after installing
+
+```{r ubc30aa5, echo=FALSE, out.width = '25%'}
+knitr::include_graphics("images/psppicon.png")
+```
+
 
 * **Step 2**: Open PSPP
 
@@ -215,7 +263,13 @@ knitr::include_graphics("images/abacus32.png")
 knitr::include_graphics("images/abacus33.png")
 ```
 
-* **Step 5**: Similar to before, change the directories as appropriate. Get rid of the extra lines of codes. Resulting codes are as follows:
+You will see the following file:
+
+```{r ubc33bb, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/abacusX33.png")
+```
+
+* **Step 5**: Similar to before, change the directories as appropriate. Get rid of the extra lines of codes. Resulting codes are as follows (you can copy and replace the code in the file with the following codes):
 ```{r eval=FALSE}
 file handle infile/name = 'C:\CCHS\Data\cchs_cycle3-1CD\DATA\hs.txt'.
 data list file = infile notable/.
@@ -227,7 +281,7 @@ execute.
 ```
 
 ```{r ubc34, echo=FALSE, out.width = '65%'}
-knitr::include_graphics("images/abacus34.png")
+knitr::include_graphics("images/abacusX34.png")
 ```
 
 * **Step 6**: Run the codes.
@@ -236,11 +290,24 @@ knitr::include_graphics("images/abacus34.png")
 knitr::include_graphics("images/abacus35.png")
 ```
 
-* **Step 7**: This is a large data, and will take some time to load the data into the PSPP data editor. Be patient. Once loading is complete, it will show the 'data view'.
+* **Step 7**: This is a large data, and will take some time to load the data into the PSPP data editor. **Be patient**. 
+
+```{r ubc12xyg, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/waitX.png")
+```
+
+Once loading is complete, it will show the 'output' and 'data view'.
+
+```{r ubc36v, echo=FALSE, out.width = '65%'}
+knitr::include_graphics("images/abacusNew.png")
+```
 
 ```{r ubc36, echo=FALSE, out.width = '65%'}
 knitr::include_graphics("images/abacus36.png")
 ```
+
+
+Note that, you will get error message, if your files were not in the correct path. In our example, the path was ```"C:\CCHS\Data\"``` for the zip file content (see the previous steps).
 
 * **Step 7**: You can also check the 'variable view'.
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Survey Data: Design and Examples</title>
+  <title>Chapter 6 Demystifying NHANES | Survey Data: Design and Examples</title>
   <meta name="description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Survey Data: Design and Examples" />
+  <meta property="og:title" content="Chapter 6 Demystifying NHANES | Survey Data: Design and Examples" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ehsanx/504007-SurveyData" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Survey Data: Design and Examples" />
+  <meta name="twitter:title" content="Chapter 6 Demystifying NHANES | Survey Data: Design and Examples" />
   
   <meta name="twitter:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importing-nhanes-to-r.html"/>
-
+<link rel="prev" href="importing-cchs-to-r.html"/>
+<link rel="next" href="importing-nhanes-to-r.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -235,34 +235,88 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="demystifying-nhanes" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Demystifying NHANES</h1>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">6.1</span> Overview</h2>
+<p>National Center for Health Statistics (NCHS) has been conducting surveys combining interviews with health/laboratory and physical examination studies since 1959. The end-product, recently known as, National Health and Nutrition Examination Surveys (NHANES) provide cross-sectional data of the health and nutrition of the United States population. This information source has been central to formulating nationwide public health policies and practices.</p>
+</div>
+<div id="survey-history" class="section level2">
+<h2><span class="header-section-number">6.2</span> Survey history</h2>
+<p>Overall NHANES survey history</p>
+<p><img src="images/g1.png" width="65%" /></p>
+</div>
+<div id="nhanes-datafile-and-documents" class="section level2">
+<h2><span class="header-section-number">6.3</span> NHANES datafile and documents</h2>
+<div id="file-format" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> File format</h3>
+<p>The Continuous NHANES files are stored in the NHANES website as SAS transport file formats (.xpt). You can import this data in any statistical package that supports this file format.</p>
+</div>
+<div id="continuous-nhanes-components" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Continuous NHANES Components</h3>
+<p>Continuous NHANES <a href="https://www.cdc.gov/nchs/tutorials/NHANES/SurveyOrientation/DataStructureContents/Info1.htm">components</a> separated to reduce the amount of time to download and documentation size:</p>
+<p><img src="images/g2.png" width="65%" /></p>
+</div>
+<div id="public-release-excludes" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Public release excludes</h3>
+<p>The following data have not been released on the NHANES website as public release files due to confidentiality concerns:</p>
+<ul>
+<li>adolescent data on alcohol use,</li>
+<li>smoking,</li>
+<li>sexual behavior,</li>
+<li>reproductive health and drug use</li>
+</ul>
+</div>
+<div id="combining-data" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Combining data</h3>
+<div id="different-cycles" class="section level4">
+<h4><span class="header-section-number">6.3.4.1</span> Different cycles</h4>
+<p>It is possible to combine datasets from different years/cycles together in NHANES. However, NHANES is a cross-sectional data, and identification of the same person accross different cycles is not possible in the public resease datasets. For appending data from different cycles, please make sure that the variable names/labels are the same/identical in years under consideration (in some years, names and labels do change).</p>
+</div>
+<div id="within-the-same-cycle" class="section level4">
+<h4><span class="header-section-number">6.3.4.2</span> Within the same cycle</h4>
+<p>Within NHANES datasets in a given cycle, each sampled person has an unique identifier sequence number (variable <code>SEQN</code>) and therefore various data components:</p>
+<ul>
+<li>demographics,</li>
+<li>dietary,</li>
+<li>examination,</li>
+<li>laboratory and</li>
+<li>questionnaire</li>
+</ul>
+<p>within same cycle can be merged.</p>
+</div>
+</div>
+<div id="missing-data-and-outliers" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Missing data and outliers</h3>
+<p><span class="citation">CDC (<a href="references.html#ref-CDCfaq" role="doc-biblioref">2018</a>)</span> recommends:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>“As a general rule, if 10% or less of your data for a variable are missing from your analytic dataset, it is usually acceptable to continue your analysis without further evaluation or adjustment. However, if more than 10% of the data for a variable are missing, you may need to determine whether the missing values are distributed equally across socio-demographic characteristics, and decide whether further imputation of missing values or use of adjusted weights are necessary.”</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>“If you fail to identify ‘refusal’ or ‘do not know’ as types of missing data, and treat the assigned values for ‘refused’ or ‘do not know’ as real values, you will get distorted results in your statistical analyses. Therefore, it is important to recode ‘refused’ or ‘don’t know’ responses as missing values (either as a period (.) for numeric variables or as a blank for character variables).”</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>“Outliers with extremely large weights could have an influential impact on your estimates. You will have to decide whether to keep these influential outliers in your analysis or not. It is up to the analysts to make that decision.”</li>
+</ol>
+</blockquote>
+</div>
+<div id="nhanes-documents" class="section level3">
+<h3><span class="header-section-number">6.3.6</span> NHANES documents</h3>
+<p><img src="images/g3.png" width="65%" /></p>
+</div>
+</div>
+<div id="exercise-web" class="section level2">
+<h2><span class="header-section-number">6.4</span> Exercise (web)</h2>
+<ul>
+<li>More information about <a href="https://wwwn.cdc.gov/nchs/nhanes/tutorials/module2.aspx">NHANES design</a></li>
+<li>Visit <a href="https://wwwn.cdc.gov/Nchs/Nhanes/search/">US CDC</a> and do a variable keyword search based on your research interest (e.g., arthritis).</li>
+</ul>
 
-<div id="refs" class="references">
-<div id="ref-bilder2014analysis">
-<p>Bilder, Christopher R, and Thomas M Loughin. 2014. <em>Analysis of Categorical Data with R</em>. CRC Press.</p>
-</div>
-<div id="ref-CDCfaq">
-<p>CDC. 2018. “NHANES Web Tutorial Frequently Asked Questions (Faqs).” <a href="https://www.cdc.gov/nchs/tutorials/NHANES/FAQs.htm">https://www.cdc.gov/nchs/tutorials/NHANES/FAQs.htm</a>.</p>
-</div>
-<div id="ref-nhanes">
-<p>CDC,NCHS. 2018. “National Health and Nutrition Examination Survey Data.” <a href="https://wwwn.cdc.gov/nchs/nhanes/">https://wwwn.cdc.gov/nchs/nhanes/</a>.</p>
-</div>
-<div id="ref-dobson2008gml">
-<p>Dobson, A. J., and A. G Barnett. 2008. <em>An Introduction to Generalized Linear Models, Third Edition</em>. Chapman; Hall/CRC.</p>
-</div>
-<div id="ref-heeringa2017applied">
-<p>Heeringa, Steven G, Brady T West, and Patricia A Berglund. 2017. <em>Applied Survey Data Analysis</em>. Chapman; Hall/CRC.</p>
-</div>
-<div id="ref-lumley2011complex">
-<p>Lumley, Thomas. 2011. <em>Complex Surveys: A Guide to Analysis Using R</em>. Vol. 565. John Wiley &amp; Sons.</p>
-</div>
-<div id="ref-RNHANES">
-<p>Susmann, Herb. 2016. <em>RNHANES: Facilitates Analysis of Cdc Nhanes Data</em>. <a href="https://CRAN.R-project.org/package=RNHANES">https://CRAN.R-project.org/package=RNHANES</a>.</p>
-</div>
-<div id="ref-vittinghoff2011regression">
-<p>Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2011. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. Springer Science &amp; Business Media.</p>
-</div>
 </div>
 </div>
             </section>
@@ -270,8 +324,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="importing-nhanes-to-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="importing-cchs-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importing-nhanes-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
