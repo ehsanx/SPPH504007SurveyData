@@ -24,7 +24,7 @@
 <meta name="author" content="Ehsan Karim" />
 
 
-<meta name="date" content="2020-09-14" />
+<meta name="date" content="2020-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -267,10 +267,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Step 3</strong>: We can download the XPT data in the local PC folder and read the data into R as as follows:</li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="co"># install.packages(&quot;SASxport&quot;)</span></a>
-<a class="sourceLine" id="cb78-2" title="2"><span class="kw">require</span>(SASxport)</a>
-<a class="sourceLine" id="cb78-3" title="3"><span class="kw">library</span>(foreign)</a>
-<a class="sourceLine" id="cb78-4" title="4">DEMO &lt;-<span class="st"> </span><span class="kw">read.xport</span>(<span class="st">&quot;SurveyData</span><span class="ch">\\</span><span class="st">DEMO_I.XPT&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="co"># install.packages(&quot;SASxport&quot;)</span></a>
+<a class="sourceLine" id="cb79-2" title="2"><span class="kw">require</span>(SASxport)</a>
+<a class="sourceLine" id="cb79-3" title="3"><span class="kw">library</span>(foreign)</a>
+<a class="sourceLine" id="cb79-4" title="4">DEMO &lt;-<span class="st"> </span><span class="kw">read.xport</span>(<span class="st">&quot;SurveyData</span><span class="ch">\\</span><span class="st">DEMO_I.XPT&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;foreign&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:SASxport&#39;:
@@ -283,7 +283,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Step 5</strong>: We can also check the variable names in this <code>DEMO</code> dataset as follows:</li>
 </ul>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">names</span>(DEMO)</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="kw">names</span>(DEMO)</a></code></pre></div>
 <pre><code>##  [1] &quot;SEQN&quot;     &quot;SDDSRVYR&quot; &quot;RIDSTATR&quot; &quot;RIAGENDR&quot; &quot;RIDAGEYR&quot; &quot;RIDAGEMN&quot;
 ##  [7] &quot;RIDRETH1&quot; &quot;RIDRETH3&quot; &quot;RIDEXMON&quot; &quot;RIDEXAGM&quot; &quot;DMQMILIZ&quot; &quot;DMQADFC&quot; 
 ## [13] &quot;DMDBORN4&quot; &quot;DMDCITZN&quot; &quot;DMDYRSUS&quot; &quot;DMDEDUC3&quot; &quot;DMDEDUC2&quot; &quot;DMDMARTL&quot;
@@ -307,14 +307,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Step 9</strong>: We can assess if the numbers reported under count and cumulative (from the above Figure) matches with what we get from the <code>DEMO</code> data we just imported (particularly, for the <code>DMDHSEDU</code> variable):</li>
 </ul>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">table</span>(DEMO<span class="op">$</span>DMDHSEDU)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="kw">table</span>(DEMO<span class="op">$</span>DMDHSEDU)</a></code></pre></div>
 <pre><code>## 
 ##    1    2    3    4    5    7    9 
 ##  619  511  980 1462 1629    2   23</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">cumsum</span>(<span class="kw">table</span>(DEMO<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="kw">cumsum</span>(<span class="kw">table</span>(DEMO<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
 <pre><code>##    1    2    3    4    5    7    9 
 ##  619 1130 2110 3572 5201 5203 5226</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="kw">length</span>(<span class="kw">is.na</span>(DEMO<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">length</span>(<span class="kw">is.na</span>(DEMO<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
 <pre><code>## [1] 9971</code></pre>
 </div>
 <div id="accessing-nhanes-data-using-r-packages" class="section level3">
@@ -322,8 +322,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="nhanesa" class="section level4">
 <h4><span class="header-section-number">7.2.2.1</span> nhanesA</h4>
 <p><code>nhanesA</code> provides a convenient way to download and analyze NHANES survey data.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="co">#install.packages(&quot;nhanesA&quot;)</span></a>
-<a class="sourceLine" id="cb89-2" title="2"><span class="kw">library</span>(nhanesA)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="co">#install.packages(&quot;nhanesA&quot;)</span></a>
+<a class="sourceLine" id="cb90-2" title="2"><span class="kw">library</span>(nhanesA)</a></code></pre></div>
 <ul>
 <li><strong>Step 1</strong>: Witin the CDC website, NHANES data are available in 5 categories
 <ul>
@@ -335,17 +335,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p>To get a list of available variables within a datafile, we run the following command (e.g., we check variable names within <code>DEMO</code> data):</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">library</span>(nhanesA)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">library</span>(nhanesA)</a></code></pre></div>
 <pre><code>## Warning: package &#39;nhanesA&#39; was built under R version 4.0.2</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1"><span class="kw">nhanesTables</span>(<span class="dt">data_group=</span><span class="st">&#39;DEMO&#39;</span>, <span class="dt">year=</span><span class="dv">2015</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">nhanesTables</span>(<span class="dt">data_group=</span><span class="st">&#39;DEMO&#39;</span>, <span class="dt">year=</span><span class="dv">2015</span>)</a></code></pre></div>
 <pre><code>##   FileName                              Description
 ## 1   DEMO_I Demographic Variables and Sample Weights</code></pre>
 <ul>
 <li><strong>Step 2</strong>: We can obtain the summaries of the downloaded data as follows (see below):</li>
 </ul>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1">demo &lt;-<span class="st"> </span><span class="kw">nhanes</span>(<span class="st">&#39;DEMO_I&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1">demo &lt;-<span class="st"> </span><span class="kw">nhanes</span>(<span class="st">&#39;DEMO_I&#39;</span>)</a></code></pre></div>
 <pre><code>## Processing SAS dataset DEMO_I 	 ..</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">names</span>(demo)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1"><span class="kw">names</span>(demo)</a></code></pre></div>
 <pre><code>##  [1] &quot;SEQN&quot;     &quot;SDDSRVYR&quot; &quot;RIDSTATR&quot; &quot;RIAGENDR&quot; &quot;RIDAGEYR&quot; &quot;RIDAGEMN&quot;
 ##  [7] &quot;RIDRETH1&quot; &quot;RIDRETH3&quot; &quot;RIDEXMON&quot; &quot;RIDEXAGM&quot; &quot;DMQMILIZ&quot; &quot;DMQADFC&quot; 
 ## [13] &quot;DMDBORN4&quot; &quot;DMDCITZN&quot; &quot;DMDYRSUS&quot; &quot;DMDEDUC3&quot; &quot;DMDEDUC2&quot; &quot;DMDMARTL&quot;
@@ -354,14 +354,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [31] &quot;DMDFMSIZ&quot; &quot;DMDHHSZA&quot; &quot;DMDHHSZB&quot; &quot;DMDHHSZE&quot; &quot;DMDHRGND&quot; &quot;DMDHRAGE&quot;
 ## [37] &quot;DMDHRBR4&quot; &quot;DMDHREDU&quot; &quot;DMDHRMAR&quot; &quot;DMDHSEDU&quot; &quot;WTINT2YR&quot; &quot;WTMEC2YR&quot;
 ## [43] &quot;SDMVPSU&quot;  &quot;SDMVSTRA&quot; &quot;INDHHIN2&quot; &quot;INDFMIN2&quot; &quot;INDFMPIR&quot;</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="kw">table</span>(demo<span class="op">$</span>DMDHSEDU)</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw">table</span>(demo<span class="op">$</span>DMDHSEDU)</a></code></pre></div>
 <pre><code>## 
 ##    1    2    3    4    5    7    9 
 ##  619  511  980 1462 1629    2   23</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1"><span class="kw">cumsum</span>(<span class="kw">table</span>(demo<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">cumsum</span>(<span class="kw">table</span>(demo<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
 <pre><code>##    1    2    3    4    5    7    9 
 ##  619 1130 2110 3572 5201 5203 5226</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="kw">length</span>(<span class="kw">is.na</span>(demo<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="kw">length</span>(<span class="kw">is.na</span>(demo<span class="op">$</span>DMDHSEDU))</a></code></pre></div>
 <pre><code>## [1] 9971</code></pre>
 </div>
 <div id="rnhanes" class="section level4">

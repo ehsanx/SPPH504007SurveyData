@@ -120,7 +120,7 @@
 
 \title{Survey Data: Design and Examples}
 \author{Ehsan Karim}
-\date{2020-09-14}
+\date{2020-09-15}
 
 \begin{document}
 \maketitle
@@ -1451,6 +1451,21 @@ You will see the following file:
 \end{Shaded}
 
 \includegraphics[width=0.65\linewidth]{images/abacusX34}
+
+For Mac users, it should be as follows (e.g., \texttt{username} should be your user name, if you are saving under the path \texttt{"/Users/username/CCHS/Data/"}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{file handle infile}\OperatorTok{/}\NormalTok{name =}\StringTok{"/Users/username/CCHS/Data/cchs_cycle3-1CD/Data/hs.txt"}\NormalTok{.}
+\NormalTok{data list file =}\StringTok{ }\NormalTok{infile notable}\OperatorTok{/}\NormalTok{.}
+\NormalTok{include file =}\StringTok{ "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hs_i.sps"}\NormalTok{.}
+\NormalTok{include file =}\StringTok{ "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsvale.sps"}\NormalTok{.}
+\NormalTok{include file =}\StringTok{ "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsvare.sps"}\NormalTok{.}
+\NormalTok{include file =}\StringTok{ "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsmiss.sps"}\NormalTok{.}
+
+\NormalTok{execute.}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{itemize}
 \tightlist

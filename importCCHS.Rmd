@@ -284,6 +284,19 @@ execute.
 knitr::include_graphics("images/abacusX34.png")
 ```
 
+For Mac users, it should be as follows (e.g., `username` should be your user name, if you are saving under the path ``` "/Users/username/CCHS/Data/" ```):
+
+```{r eval=FALSE}
+file handle infile/name ="/Users/username/CCHS/Data/cchs_cycle3-1CD/Data/hs.txt".
+data list file = infile notable/.
+include file = "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hs_i.sps".
+include file = "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsvale.sps".
+include file = "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsvare.sps".
+include file = "/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsmiss.sps".
+
+execute.
+```
+
 * **Step 6**: Run the codes.
 
 ```{r ubc35, echo=FALSE, out.width = '65%'}

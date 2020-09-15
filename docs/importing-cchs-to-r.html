@@ -24,7 +24,7 @@
 <meta name="author" content="Ehsan Karim" />
 
 
-<meta name="date" content="2020-09-14" />
+<meta name="date" content="2020-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -416,6 +416,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb71-6" title="6">include file =<span class="st"> &quot;C:\CCHS\Data\cchs_cycle3-1CD\SAS_SPSS\Layouts\hs\hsmiss.sps&quot;</span>.</a>
 <a class="sourceLine" id="cb71-7" title="7">execute.</a></code></pre></div>
 <p><img src="images/abacusX34.png" width="65%" /></p>
+<p>For Mac users, it should be as follows (e.g., <code>username</code> should be your user name, if you are saving under the path <code>"/Users/username/CCHS/Data/"</code>):</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">file handle infile<span class="op">/</span>name =<span class="st">&quot;/Users/username/CCHS/Data/cchs_cycle3-1CD/Data/hs.txt&quot;</span>.</a>
+<a class="sourceLine" id="cb72-2" title="2">data list file =<span class="st"> </span>infile notable<span class="op">/</span>.</a>
+<a class="sourceLine" id="cb72-3" title="3">include file =<span class="st"> &quot;/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hs_i.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb72-4" title="4">include file =<span class="st"> &quot;/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsvale.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb72-5" title="5">include file =<span class="st"> &quot;/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsvare.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb72-6" title="6">include file =<span class="st"> &quot;/Users/username/CCHS/Data/cchs_cycle3-1CD/SAS_SPSS/Layouts/hs/hsmiss.sps&quot;</span>.</a>
+<a class="sourceLine" id="cb72-7" title="7"></a>
+<a class="sourceLine" id="cb72-8" title="8">execute.</a></code></pre></div>
 <ul>
 <li><strong>Step 6</strong>: Run the codes.</li>
 </ul>
@@ -447,11 +456,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Step 11</strong>: To save CSV format data, use the following syntax.</li>
 </ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">SAVE TRANSLATE</a>
-<a class="sourceLine" id="cb72-2" title="2">  <span class="op">/</span>OUTFILE=<span class="st">&quot;C:/CCHS/Data/cchs3b.csv&quot;</span>  </a>
-<a class="sourceLine" id="cb72-3" title="3">  <span class="op">/</span>TYPE=CSV</a>
-<a class="sourceLine" id="cb72-4" title="4">  <span class="op">/</span>FIELDNAMES      </a>
-<a class="sourceLine" id="cb72-5" title="5">  <span class="op">/</span>CELLS=VALUES.</a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">SAVE TRANSLATE</a>
+<a class="sourceLine" id="cb73-2" title="2">  <span class="op">/</span>OUTFILE=<span class="st">&quot;C:/CCHS/Data/cchs3b.csv&quot;</span>  </a>
+<a class="sourceLine" id="cb73-3" title="3">  <span class="op">/</span>TYPE=CSV</a>
+<a class="sourceLine" id="cb73-4" title="4">  <span class="op">/</span>FIELDNAMES      </a>
+<a class="sourceLine" id="cb73-5" title="5">  <span class="op">/</span>CELLS=VALUES.</a></code></pre></div>
 <p>Note that, for categorical data, you can either save values or labels. For our purpose, we prefer values, and hence saved with values here.</p>
 <p><img src="images/abacus41.png" width="65%" /></p>
 <ul>
@@ -489,17 +498,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Step 1</strong>: Set working directory</li>
 </ul>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">setwd</span>(<span class="st">&quot;C:/CCHS/Data/&quot;</span>) <span class="co"># or something appropriate</span></a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">setwd</span>(<span class="st">&quot;C:/CCHS/Data/&quot;</span>) <span class="co"># or something appropriate</span></a></code></pre></div>
 <ul>
 <li><strong>Step 2</strong>: Read the dataset created from PSPP with cell values. We can also do a small check to see if the cell values are visible. For example, we choose a variable ‘CCCE_05A’, and tabulate it.</li>
 </ul>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">Hs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;cchs3b.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb74-2" title="2"><span class="kw">table</span>(Hs<span class="op">$</span>CCCE_05A)</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1">Hs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;cchs3b.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb75-2" title="2"><span class="kw">table</span>(Hs<span class="op">$</span>CCCE_05A)</a></code></pre></div>
 <p><img src="images/abacus46.png" width="65%" /></p>
 <ul>
 <li><strong>Step 3</strong>: Save the RData file from R into a folder <code>SurveyData</code>:</li>
 </ul>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">save</span>(Hs, <span class="dt">file =</span> <span class="st">&quot;SurveyData/cchs3.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">save</span>(Hs, <span class="dt">file =</span> <span class="st">&quot;SurveyData/cchs3.RData&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Step 4</strong>: See the RData file saved in the directory extracted from R.</li>
 </ul>
@@ -511,7 +520,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Step 6</strong>: Load the saved RData into R. Environment window within RStudio should have ‘Hs’ dataset.</li>
 </ul>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">load</span>(<span class="st">&quot;SurveyData/cchs3.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">load</span>(<span class="st">&quot;SurveyData/cchs3.RData&quot;</span>)</a></code></pre></div>
 <p><img src="images/abacus45.png" width="65%" /></p>
 
 </div>
