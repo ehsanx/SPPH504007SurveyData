@@ -353,6 +353,14 @@ knitr::include_graphics("images/abacus41.png")
 knitr::include_graphics("images/abacus42.png")
 ```
 
+### Option 3: Processing data using SPSS
+
+Log into [ubc.onthehub.com](https://ubc.onthehub.com) to download SPSS. With your CWL account, UBC students should be able to download it. UBC [IT website for SPSS](https://it.ubc.ca/services/desktop-print-services/software-licensing/spss) says:
+
+`The SPSS software license with UBC specifies that SPSS must only be used by UBC Faculty, Students, and Research Staff and only for Teaching and non-commercial Research purposes related to UBC.`
+
+Both network (for UBC owened devices) or standalone / home versions (for non-UBC owened devices) should be available. Once downloaded, same process of importing CCHS data in PSPP can also be applied on SPSS (same syntax files should work). Let me know if that is not the case.
+
 ## Processing data in R
 
 ### Download software
