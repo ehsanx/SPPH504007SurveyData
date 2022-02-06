@@ -28,11 +28,11 @@ description: "This second level course will teach research trainees to apply met
 
 
 ```{r setup2, include=FALSE}
-library(tufte)
-library(msmbstyle)
-knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
-options(htmltools.dir.version = FALSE)
-options(knitr.duplicate.label = "allow")
+# library(tufte)
+# library(msmbstyle)
+# knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('msmbstyle'))
+# options(htmltools.dir.version = FALSE)
+# options(knitr.duplicate.label = "allow")
 ```
 
 
