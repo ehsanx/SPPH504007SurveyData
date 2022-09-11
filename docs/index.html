@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Survey Data: Design and Examples</title>
   <meta name="description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Survey Data: Design and Examples" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   <meta name="github-repo" content="ehsanx/504007-SurveyData" />
@@ -21,10 +20,10 @@
   <meta name="twitter:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   
 
-<meta name="author" content="Ehsan Karim" />
+<meta name="author" content="M. Ehsan Karim" />
 
 
-<meta name="date" content="2020-09-15" />
+<meta name="date" content="2022-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,14 +32,15 @@
   
 
 <link rel="next" href="tab-3.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
-<link href="libs/gitbook/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,37 +49,41 @@
 
 
 
-
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.24/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +92,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -122,6 +126,29 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -138,82 +165,138 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Survey Data</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Outline</a></li>
-<li class="chapter" data-level="2" data-path="tab-3.html"><a href="tab-3.html"><i class="fa fa-check"></i><b>2</b> Model-based Approach</a><ul>
-<li class="chapter" data-level="2.1" data-path="tab-3.html"><a href="tab-3.html#example"><i class="fa fa-check"></i><b>2.1</b> Example</a></li>
-<li class="chapter" data-level="2.2" data-path="tab-3.html"><a href="tab-3.html#research-question"><i class="fa fa-check"></i><b>2.2</b> Research question</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="tab-3.html"><a href="tab-3.html#notations"><i class="fa fa-check"></i><b>2.2.1</b> Notations</a></li>
-<li class="chapter" data-level="2.2.2" data-path="tab-3.html"><a href="tab-3.html#assumptions"><i class="fa fa-check"></i><b>2.2.2</b> Assumptions</a></li>
-<li class="chapter" data-level="2.2.3" data-path="tab-3.html"><a href="tab-3.html#hypothesis"><i class="fa fa-check"></i><b>2.2.3</b> Hypothesis</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preamble</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i>Outline</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#version-history"><i class="fa fa-check"></i>Version history</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="tab-3.html"><a href="tab-3.html#data"><i class="fa fa-check"></i><b>2.3</b> Data</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="tab-3.html"><a href="tab-3.html#data-table"><i class="fa fa-check"></i><b>2.3.1</b> Data table</a></li>
-<li class="chapter" data-level="2.3.2" data-path="tab-3.html"><a href="tab-3.html#visualization"><i class="fa fa-check"></i><b>2.3.2</b> Visualization</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="tab-3.html"><a href="tab-3.html#checking-assumptions"><i class="fa fa-check"></i><b>2.4</b> Checking assumptions</a></li>
-<li class="chapter" data-level="2.5" data-path="tab-3.html"><a href="tab-3.html#analysis"><i class="fa fa-check"></i><b>2.5</b> Analysis</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="tab-3.html"><a href="tab-3.html#two-sample-t-test"><i class="fa fa-check"></i><b>2.5.1</b> Two-sample t-test</a></li>
-<li class="chapter" data-level="2.5.2" data-path="tab-3.html"><a href="tab-3.html#regression"><i class="fa fa-check"></i><b>2.5.2</b> Regression</a></li>
-<li class="chapter" data-level="2.5.3" data-path="tab-3.html"><a href="tab-3.html#anova"><i class="fa fa-check"></i><b>2.5.3</b> ANOVA</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="tab-3.html"><a href="tab-3.html#verdict"><i class="fa fa-check"></i><b>2.6</b> Verdict</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="tab-3.html"><a href="tab-3.html#informal-conclusion"><i class="fa fa-check"></i><b>2.6.1</b> Informal conclusion</a></li>
-<li class="chapter" data-level="2.6.2" data-path="tab-3.html"><a href="tab-3.html#a-word-of-caution"><i class="fa fa-check"></i><b>2.6.2</b> A word of caution</a></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="tab-3.html"><a href="tab-3.html#exercises-optional"><i class="fa fa-check"></i><b>2.7</b> Exercises (Optional)</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="design-based-approach.html"><a href="design-based-approach.html"><i class="fa fa-check"></i><b>3</b> Design-based Approach</a><ul>
-<li class="chapter" data-level="3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#sampling"><i class="fa fa-check"></i><b>3.1</b> Sampling</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="design-based-approach.html"><a href="design-based-approach.html#steps-of-generalization"><i class="fa fa-check"></i><b>3.1.1</b> Steps of generalization</a></li>
-<li class="chapter" data-level="3.1.2" data-path="design-based-approach.html"><a href="design-based-approach.html#types-of-sampling-techniques"><i class="fa fa-check"></i><b>3.1.2</b> Types of sampling techniques</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#statistical-inference"><i class="fa fa-check"></i><b>3.2</b> Statistical inference</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#model-based"><i class="fa fa-check"></i><b>3.2.1</b> Model-based</a></li>
-<li class="chapter" data-level="3.2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-based"><i class="fa fa-check"></i><b>3.2.2</b> Design-based</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="design-based-approach.html"><a href="design-based-approach.html#complex-surveys"><i class="fa fa-check"></i><b>3.3</b> Complex surveys</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#design-features"><i class="fa fa-check"></i><b>3.3.1</b> Design features</a></li>
-<li class="chapter" data-level="3.3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-effect"><i class="fa fa-check"></i><b>3.3.2</b> Design effect</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="design-based-approach.html"><a href="design-based-approach.html#other-ideas"><i class="fa fa-check"></i><b>3.4</b> Other ideas</a></li>
-<li class="chapter" data-level="3.5" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>3.5</b> Further readings</a></li>
-<li class="chapter" data-level="3.6" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>3.6</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>4</b> Potential Data Sources</a><ul>
-<li class="chapter" data-level="4.1" data-path="potential-data-sources.html"><a href="potential-data-sources.html#survey-data-with-features"><i class="fa fa-check"></i><b>4.1</b> Survey data with features</a></li>
-<li class="chapter" data-level="4.2" data-path="potential-data-sources.html"><a href="potential-data-sources.html#others"><i class="fa fa-check"></i><b>4.2</b> Others</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>5</b> Importing CCHS to R</a><ul>
-<li class="chapter" data-level="5.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>5.1</b> Downloading CCHS data from UBC</a></li>
-<li class="chapter" data-level="5.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>5.2</b> Reading and Formatting the data</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>5.2.1</b> Option 1: Processing data using SAS</a></li>
-<li class="chapter" data-level="5.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>5.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
-<li class="chapter" data-level="5.2.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-3-processing-data-using-spss"><i class="fa fa-check"></i><b>5.2.3</b> Option 3: Processing data using SPSS</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>5.3</b> Processing data in R</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>5.3.1</b> Download software</a></li>
-<li class="chapter" data-level="5.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>5.3.2</b> Import, export and load data into R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#comments"><i class="fa fa-check"></i>Comments</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html"><i class="fa fa-check"></i><b>6</b> Demystifying NHANES</a><ul>
-<li class="chapter" data-level="6.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#overview"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
-<li class="chapter" data-level="6.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#survey-history"><i class="fa fa-check"></i><b>6.2</b> Survey history</a></li>
-<li class="chapter" data-level="6.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-datafile-and-documents"><i class="fa fa-check"></i><b>6.3</b> NHANES datafile and documents</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#file-format"><i class="fa fa-check"></i><b>6.3.1</b> File format</a></li>
-<li class="chapter" data-level="6.3.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#continuous-nhanes-components"><i class="fa fa-check"></i><b>6.3.2</b> Continuous NHANES Components</a></li>
-<li class="chapter" data-level="6.3.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#public-release-excludes"><i class="fa fa-check"></i><b>6.3.3</b> Public release excludes</a></li>
-<li class="chapter" data-level="6.3.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#combining-data"><i class="fa fa-check"></i><b>6.3.4</b> Combining data</a></li>
-<li class="chapter" data-level="6.3.5" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#missing-data-and-outliers"><i class="fa fa-check"></i><b>6.3.5</b> Missing data and outliers</a></li>
-<li class="chapter" data-level="6.3.6" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-documents"><i class="fa fa-check"></i><b>6.3.6</b> NHANES documents</a></li>
+<li class="chapter" data-level="1" data-path="tab-3.html"><a href="tab-3.html"><i class="fa fa-check"></i><b>1</b> Model-based Approach</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="tab-3.html"><a href="tab-3.html#example"><i class="fa fa-check"></i><b>1.1</b> Example</a></li>
+<li class="chapter" data-level="1.2" data-path="tab-3.html"><a href="tab-3.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="tab-3.html"><a href="tab-3.html#notations"><i class="fa fa-check"></i><b>1.2.1</b> Notations</a></li>
+<li class="chapter" data-level="1.2.2" data-path="tab-3.html"><a href="tab-3.html#assumptions"><i class="fa fa-check"></i><b>1.2.2</b> Assumptions</a></li>
+<li class="chapter" data-level="1.2.3" data-path="tab-3.html"><a href="tab-3.html#hypothesis"><i class="fa fa-check"></i><b>1.2.3</b> Hypothesis</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#exercise-web"><i class="fa fa-check"></i><b>6.4</b> Exercise (web)</a></li>
+<li class="chapter" data-level="1.3" data-path="tab-3.html"><a href="tab-3.html#data"><i class="fa fa-check"></i><b>1.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="tab-3.html"><a href="tab-3.html#data-table"><i class="fa fa-check"></i><b>1.3.1</b> Data table</a></li>
+<li class="chapter" data-level="1.3.2" data-path="tab-3.html"><a href="tab-3.html#visualization"><i class="fa fa-check"></i><b>1.3.2</b> Visualization</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>7</b> Importing NHANES to R</a><ul>
-<li class="chapter" data-level="7.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>7.1</b> NHANES Dataset</a></li>
-<li class="chapter" data-level="7.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>7.2</b> Accessing NHANES Data</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>7.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
-<li class="chapter" data-level="7.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>7.2.2</b> Accessing NHANES Data Using R Packages</a></li>
+<li class="chapter" data-level="1.4" data-path="tab-3.html"><a href="tab-3.html#checking-assumptions"><i class="fa fa-check"></i><b>1.4</b> Checking assumptions</a></li>
+<li class="chapter" data-level="1.5" data-path="tab-3.html"><a href="tab-3.html#analysis"><i class="fa fa-check"></i><b>1.5</b> Analysis</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="tab-3.html"><a href="tab-3.html#two-sample-t-test"><i class="fa fa-check"></i><b>1.5.1</b> Two-sample t-test</a></li>
+<li class="chapter" data-level="1.5.2" data-path="tab-3.html"><a href="tab-3.html#regression"><i class="fa fa-check"></i><b>1.5.2</b> Regression</a></li>
+<li class="chapter" data-level="1.5.3" data-path="tab-3.html"><a href="tab-3.html#anova"><i class="fa fa-check"></i><b>1.5.3</b> ANOVA</a></li>
 </ul></li>
+<li class="chapter" data-level="1.6" data-path="tab-3.html"><a href="tab-3.html#verdict"><i class="fa fa-check"></i><b>1.6</b> Verdict</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="tab-3.html"><a href="tab-3.html#informal-conclusion"><i class="fa fa-check"></i><b>1.6.1</b> Informal conclusion</a></li>
+<li class="chapter" data-level="1.6.2" data-path="tab-3.html"><a href="tab-3.html#a-word-of-caution"><i class="fa fa-check"></i><b>1.6.2</b> A word of caution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="tab-3.html"><a href="tab-3.html#exercises-optional"><i class="fa fa-check"></i><b>1.7</b> Exercises (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="design-based-approach.html"><a href="design-based-approach.html"><i class="fa fa-check"></i><b>2</b> Design-based Approach</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#sampling"><i class="fa fa-check"></i><b>2.1</b> Sampling</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="design-based-approach.html"><a href="design-based-approach.html#steps-of-generalization"><i class="fa fa-check"></i><b>2.1.1</b> Steps of generalization</a></li>
+<li class="chapter" data-level="2.1.2" data-path="design-based-approach.html"><a href="design-based-approach.html#types-of-sampling-techniques"><i class="fa fa-check"></i><b>2.1.2</b> Types of sampling techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#statistical-inference"><i class="fa fa-check"></i><b>2.2</b> Statistical inference</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#model-based"><i class="fa fa-check"></i><b>2.2.1</b> Model-based</a></li>
+<li class="chapter" data-level="2.2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-based"><i class="fa fa-check"></i><b>2.2.2</b> Design-based</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="design-based-approach.html"><a href="design-based-approach.html#complex-surveys"><i class="fa fa-check"></i><b>2.3</b> Complex surveys</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#design-features"><i class="fa fa-check"></i><b>2.3.1</b> Design features</a></li>
+<li class="chapter" data-level="2.3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-effect"><i class="fa fa-check"></i><b>2.3.2</b> Design effect</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="design-based-approach.html"><a href="design-based-approach.html#other-ideas"><i class="fa fa-check"></i><b>2.4</b> Other ideas</a></li>
+<li class="chapter" data-level="2.5" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>2.5</b> Further readings</a></li>
+<li class="chapter" data-level="2.6" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>3</b> Potential Data Sources</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="potential-data-sources.html"><a href="potential-data-sources.html#survey-data-with-features"><i class="fa fa-check"></i><b>3.1</b> Survey data with features</a></li>
+<li class="chapter" data-level="3.2" data-path="potential-data-sources.html"><a href="potential-data-sources.html#others"><i class="fa fa-check"></i><b>3.2</b> Others</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>4</b> Importing CCHS to R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>4.1</b> Downloading CCHS data from UBC</a></li>
+<li class="chapter" data-level="4.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>4.2</b> Reading and Formatting the data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>4.2.1</b> Option 1: Processing data using SAS</a></li>
+<li class="chapter" data-level="4.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>4.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
+<li class="chapter" data-level="4.2.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-3-processing-data-using-spss"><i class="fa fa-check"></i><b>4.2.3</b> Option 3: Processing data using SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>4.3</b> Processing data in R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>4.3.1</b> Download software</a></li>
+<li class="chapter" data-level="4.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>4.3.2</b> Import, export and load data into R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html"><i class="fa fa-check"></i><b>5</b> Demystifying NHANES</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#survey-history"><i class="fa fa-check"></i><b>5.2</b> Survey history</a></li>
+<li class="chapter" data-level="5.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-datafile-and-documents"><i class="fa fa-check"></i><b>5.3</b> NHANES datafile and documents</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#file-format"><i class="fa fa-check"></i><b>5.3.1</b> File format</a></li>
+<li class="chapter" data-level="5.3.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#continuous-nhanes-components"><i class="fa fa-check"></i><b>5.3.2</b> Continuous NHANES Components</a></li>
+<li class="chapter" data-level="5.3.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#public-release-excludes"><i class="fa fa-check"></i><b>5.3.3</b> Public release excludes</a></li>
+<li class="chapter" data-level="5.3.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#combining-data"><i class="fa fa-check"></i><b>5.3.4</b> Combining data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#missing-data-and-outliers"><i class="fa fa-check"></i><b>5.3.5</b> Missing data and outliers</a></li>
+<li class="chapter" data-level="5.3.6" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-documents"><i class="fa fa-check"></i><b>5.3.6</b> NHANES documents</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#exercise-web"><i class="fa fa-check"></i><b>5.4</b> Exercise (web)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>6</b> Importing NHANES to R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>6.1</b> NHANES Dataset</a></li>
+<li class="chapter" data-level="6.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>6.2</b> Accessing NHANES Data</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>6.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>6.2.2</b> Accessing NHANES Data Using R Packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="reproducing-results.html"><a href="reproducing-results.html"><i class="fa fa-check"></i><b>7</b> Reproducing Results</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="reproducing-results.html"><a href="reproducing-results.html#reproduce-results-from-a-jama-article"><i class="fa fa-check"></i><b>7.1</b> Reproduce results from a JAMA article</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="reproducing-results.html"><a href="reproducing-results.html#article"><i class="fa fa-check"></i><b>7.1.1</b> Article</a></li>
+<li class="chapter" data-level="7.1.2" data-path="reproducing-results.html"><a href="reproducing-results.html#task"><i class="fa fa-check"></i><b>7.1.2</b> Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="reproducing-results.html"><a href="reproducing-results.html#eligibility-criteria"><i class="fa fa-check"></i><b>7.1.3</b> Eligibility criteria</a></li>
+<li class="chapter" data-level="7.1.4" data-path="reproducing-results.html"><a href="reproducing-results.html#variables-of-interest"><i class="fa fa-check"></i><b>7.1.4</b> Variables of interest</a></li>
+<li class="chapter" data-level="7.1.5" data-path="reproducing-results.html"><a href="reproducing-results.html#searching-for-necessary-variables"><i class="fa fa-check"></i><b>7.1.5</b> Searching for necessary variables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="reproducing-results.html"><a href="reproducing-results.html#downloading-relevant-variables"><i class="fa fa-check"></i><b>7.2</b> Downloading relevant variables</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="reproducing-results.html"><a href="reproducing-results.html#demographic-data"><i class="fa fa-check"></i><b>7.2.1</b> Demographic data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="reproducing-results.html"><a href="reproducing-results.html#examination-data"><i class="fa fa-check"></i><b>7.2.2</b> Examination data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="reproducing-results.html"><a href="reproducing-results.html#retain-only-useful-variables"><i class="fa fa-check"></i><b>7.3</b> Retain only useful variables</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="reproducing-results.html"><a href="reproducing-results.html#quick-pick-at-the-data"><i class="fa fa-check"></i><b>7.3.1</b> Quick pick at the data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="reproducing-results.html"><a href="reproducing-results.html#merge-dara"><i class="fa fa-check"></i><b>7.4</b> Merge dara</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="reproducing-results.html"><a href="reproducing-results.html#investigate-merged-data"><i class="fa fa-check"></i><b>7.4.1</b> Investigate merged data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="reproducing-results.html"><a href="reproducing-results.html#applying-eligibility-criteria"><i class="fa fa-check"></i><b>7.5</b> Applying eligibility criteria</a></li>
+<li class="chapter" data-level="7.6" data-path="reproducing-results.html"><a href="reproducing-results.html#recoding-variables"><i class="fa fa-check"></i><b>7.6</b> Recoding variables</a></li>
+<li class="chapter" data-level="7.7" data-path="reproducing-results.html"><a href="reproducing-results.html#reproducing-table-1"><i class="fa fa-check"></i><b>7.7</b> Reproducing Table 1</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -238,11 +321,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Survey Data: Design and Examples</h1>
-<p class="author"><em>Ehsan Karim</em></p>
-<p class="date"><em>2020-09-15</em></p>
+<p class="author"><em>M. Ehsan Karim</em></p>
+<p class="date"><em>2022-09-10</em></p>
 </div>
-<div id="outline" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Outline</h1>
+<div id="preamble" class="section level1 unnumbered hasAnchor">
+<h1>Preamble<a href="index.html#preamble" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="description" class="section level2 unnumbered hasAnchor">
+<h2>Description<a href="index.html#description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Surveys are designed to gather and assess national level health-related information. Usually governments collect these data, and make some effort to publish a version of the data for researchers to use. In this document, we will talk about various survey designs, some examples, how to download some of these data sources from Canadian and US sources. An example is included at the end regarding how to reproduce results from a paper that used one of these open data sources.</p>
+</div>
+<div id="outline" class="section level2 unnumbered hasAnchor">
+<h2>Outline<a href="index.html#outline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Review of Model-based Approach</li>
 <li>Introduction to Design-based Approach</li>
@@ -255,9 +344,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Understanding NHANES data and documentation structure</li>
 <li>Data import to R</li>
+<li>Reproducing results from an article</li>
 </ul></li>
 </ul>
+<div id="version-history" class="section level3 unnumbered hasAnchor">
+<h3>Version history<a href="index.html#version-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Materials were updated over time through various deliveries of the content:</p>
+<ul>
+<li>Teaching materials for SPPH 504-007 (till 2021)</li>
+<li>Teaching materials for SPPH 604 (2022-)</li>
+</ul>
+</div>
+</div>
+<div id="prerequisites" class="section level2 unnumbered hasAnchor">
+<h2>Prerequisites<a href="index.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The prerequisites are knowledge of basic probability. Software demonstrations and codes will be provided in R, although proficiency in R is not required for understanding the concepts. If you are not familiar with R, and want to gain further understanding, I would suggest the following tutorial.</p>
+<div class="rmdcomment">
+<p>
+<strong>R tutorial</strong>
+</p>
+<p>
+Karim ME, Hoang A and Qu Y “Introduction to R for health data
+analysis” URL: <a
+href="https://ehsanx.github.io/intro2R/">ehsanx.github.io/intro2R/</a>
+</p>
+</div>
+<div id="license" class="section level3 unnumbered hasAnchor">
+<h3>License<a href="index.html#license" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="images/by-nc-sa.png" width="25%" /></p>
+<p>The online version of this book is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> International License. You may share, adapt the content and may distribute your contributions under the same license (CC BY-NC-SA 4.0), but you have to give appropriate credit, and cannot use material for the commercial purposes.</p>
+<div class="rmdcomment">
+<p>
+<strong>How to cite</strong>
+</p>
+<p>
+Karim, ME (2022) “Survey Data: Design and Examples”, URL: <a
+href="https://ehsanx.github.io/SPPH504007SurveyData/docs/">ehsanx.github.io/SPPH504007SurveyData</a>
+</p>
+</div>
+</div>
+<div id="comments" class="section level3 unnumbered hasAnchor">
+<h3>Comments<a href="index.html#comments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For any comments regarding this document, reach out to <a href="http://ehsank.com/">me</a>.</p>
 
+</div>
+</div>
 </div>
             </section>
 
@@ -268,15 +399,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="tab-3.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
-<script src="libs/gitbook/js/clipboard.min.js"></script>
-<script src="libs/gitbook/js/plugin-search.js"></script>
-<script src="libs/gitbook/js/plugin-sharing.js"></script>
-<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook/js/jquery.highlight.js"></script>
-<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -299,6 +429,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SurveyBook.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -316,7 +450,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

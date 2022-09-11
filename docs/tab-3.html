@@ -4,27 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Model-based Approach | Survey Data: Design and Examples</title>
+  <title>Chapter 1 Model-based Approach | Survey Data: Design and Examples</title>
   <meta name="description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Model-based Approach | Survey Data: Design and Examples" />
+  <meta property="og:title" content="Chapter 1 Model-based Approach | Survey Data: Design and Examples" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   <meta name="github-repo" content="ehsanx/504007-SurveyData" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Model-based Approach | Survey Data: Design and Examples" />
+  <meta name="twitter:title" content="Chapter 1 Model-based Approach | Survey Data: Design and Examples" />
   
   <meta name="twitter:description" content="This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data." />
   
 
-<meta name="author" content="Ehsan Karim" />
+<meta name="author" content="M. Ehsan Karim" />
 
 
-<meta name="date" content="2020-09-15" />
+<meta name="date" content="2022-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,14 +32,15 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="design-based-approach.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
-<link href="libs/gitbook/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -49,37 +49,41 @@
 
 
 
-
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.24/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +92,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -122,6 +126,29 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -138,82 +165,138 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Survey Data</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Outline</a></li>
-<li class="chapter" data-level="2" data-path="tab-3.html"><a href="tab-3.html"><i class="fa fa-check"></i><b>2</b> Model-based Approach</a><ul>
-<li class="chapter" data-level="2.1" data-path="tab-3.html"><a href="tab-3.html#example"><i class="fa fa-check"></i><b>2.1</b> Example</a></li>
-<li class="chapter" data-level="2.2" data-path="tab-3.html"><a href="tab-3.html#research-question"><i class="fa fa-check"></i><b>2.2</b> Research question</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="tab-3.html"><a href="tab-3.html#notations"><i class="fa fa-check"></i><b>2.2.1</b> Notations</a></li>
-<li class="chapter" data-level="2.2.2" data-path="tab-3.html"><a href="tab-3.html#assumptions"><i class="fa fa-check"></i><b>2.2.2</b> Assumptions</a></li>
-<li class="chapter" data-level="2.2.3" data-path="tab-3.html"><a href="tab-3.html#hypothesis"><i class="fa fa-check"></i><b>2.2.3</b> Hypothesis</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preamble</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i>Outline</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#version-history"><i class="fa fa-check"></i>Version history</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="tab-3.html"><a href="tab-3.html#data"><i class="fa fa-check"></i><b>2.3</b> Data</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="tab-3.html"><a href="tab-3.html#data-table"><i class="fa fa-check"></i><b>2.3.1</b> Data table</a></li>
-<li class="chapter" data-level="2.3.2" data-path="tab-3.html"><a href="tab-3.html#visualization"><i class="fa fa-check"></i><b>2.3.2</b> Visualization</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="tab-3.html"><a href="tab-3.html#checking-assumptions"><i class="fa fa-check"></i><b>2.4</b> Checking assumptions</a></li>
-<li class="chapter" data-level="2.5" data-path="tab-3.html"><a href="tab-3.html#analysis"><i class="fa fa-check"></i><b>2.5</b> Analysis</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="tab-3.html"><a href="tab-3.html#two-sample-t-test"><i class="fa fa-check"></i><b>2.5.1</b> Two-sample t-test</a></li>
-<li class="chapter" data-level="2.5.2" data-path="tab-3.html"><a href="tab-3.html#regression"><i class="fa fa-check"></i><b>2.5.2</b> Regression</a></li>
-<li class="chapter" data-level="2.5.3" data-path="tab-3.html"><a href="tab-3.html#anova"><i class="fa fa-check"></i><b>2.5.3</b> ANOVA</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="tab-3.html"><a href="tab-3.html#verdict"><i class="fa fa-check"></i><b>2.6</b> Verdict</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="tab-3.html"><a href="tab-3.html#informal-conclusion"><i class="fa fa-check"></i><b>2.6.1</b> Informal conclusion</a></li>
-<li class="chapter" data-level="2.6.2" data-path="tab-3.html"><a href="tab-3.html#a-word-of-caution"><i class="fa fa-check"></i><b>2.6.2</b> A word of caution</a></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="tab-3.html"><a href="tab-3.html#exercises-optional"><i class="fa fa-check"></i><b>2.7</b> Exercises (Optional)</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="design-based-approach.html"><a href="design-based-approach.html"><i class="fa fa-check"></i><b>3</b> Design-based Approach</a><ul>
-<li class="chapter" data-level="3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#sampling"><i class="fa fa-check"></i><b>3.1</b> Sampling</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="design-based-approach.html"><a href="design-based-approach.html#steps-of-generalization"><i class="fa fa-check"></i><b>3.1.1</b> Steps of generalization</a></li>
-<li class="chapter" data-level="3.1.2" data-path="design-based-approach.html"><a href="design-based-approach.html#types-of-sampling-techniques"><i class="fa fa-check"></i><b>3.1.2</b> Types of sampling techniques</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#statistical-inference"><i class="fa fa-check"></i><b>3.2</b> Statistical inference</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#model-based"><i class="fa fa-check"></i><b>3.2.1</b> Model-based</a></li>
-<li class="chapter" data-level="3.2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-based"><i class="fa fa-check"></i><b>3.2.2</b> Design-based</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="design-based-approach.html"><a href="design-based-approach.html#complex-surveys"><i class="fa fa-check"></i><b>3.3</b> Complex surveys</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#design-features"><i class="fa fa-check"></i><b>3.3.1</b> Design features</a></li>
-<li class="chapter" data-level="3.3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-effect"><i class="fa fa-check"></i><b>3.3.2</b> Design effect</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="design-based-approach.html"><a href="design-based-approach.html#other-ideas"><i class="fa fa-check"></i><b>3.4</b> Other ideas</a></li>
-<li class="chapter" data-level="3.5" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>3.5</b> Further readings</a></li>
-<li class="chapter" data-level="3.6" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>3.6</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>4</b> Potential Data Sources</a><ul>
-<li class="chapter" data-level="4.1" data-path="potential-data-sources.html"><a href="potential-data-sources.html#survey-data-with-features"><i class="fa fa-check"></i><b>4.1</b> Survey data with features</a></li>
-<li class="chapter" data-level="4.2" data-path="potential-data-sources.html"><a href="potential-data-sources.html#others"><i class="fa fa-check"></i><b>4.2</b> Others</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>5</b> Importing CCHS to R</a><ul>
-<li class="chapter" data-level="5.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>5.1</b> Downloading CCHS data from UBC</a></li>
-<li class="chapter" data-level="5.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>5.2</b> Reading and Formatting the data</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>5.2.1</b> Option 1: Processing data using SAS</a></li>
-<li class="chapter" data-level="5.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>5.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
-<li class="chapter" data-level="5.2.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-3-processing-data-using-spss"><i class="fa fa-check"></i><b>5.2.3</b> Option 3: Processing data using SPSS</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>5.3</b> Processing data in R</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>5.3.1</b> Download software</a></li>
-<li class="chapter" data-level="5.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>5.3.2</b> Import, export and load data into R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#comments"><i class="fa fa-check"></i>Comments</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html"><i class="fa fa-check"></i><b>6</b> Demystifying NHANES</a><ul>
-<li class="chapter" data-level="6.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#overview"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
-<li class="chapter" data-level="6.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#survey-history"><i class="fa fa-check"></i><b>6.2</b> Survey history</a></li>
-<li class="chapter" data-level="6.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-datafile-and-documents"><i class="fa fa-check"></i><b>6.3</b> NHANES datafile and documents</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#file-format"><i class="fa fa-check"></i><b>6.3.1</b> File format</a></li>
-<li class="chapter" data-level="6.3.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#continuous-nhanes-components"><i class="fa fa-check"></i><b>6.3.2</b> Continuous NHANES Components</a></li>
-<li class="chapter" data-level="6.3.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#public-release-excludes"><i class="fa fa-check"></i><b>6.3.3</b> Public release excludes</a></li>
-<li class="chapter" data-level="6.3.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#combining-data"><i class="fa fa-check"></i><b>6.3.4</b> Combining data</a></li>
-<li class="chapter" data-level="6.3.5" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#missing-data-and-outliers"><i class="fa fa-check"></i><b>6.3.5</b> Missing data and outliers</a></li>
-<li class="chapter" data-level="6.3.6" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-documents"><i class="fa fa-check"></i><b>6.3.6</b> NHANES documents</a></li>
+<li class="chapter" data-level="1" data-path="tab-3.html"><a href="tab-3.html"><i class="fa fa-check"></i><b>1</b> Model-based Approach</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="tab-3.html"><a href="tab-3.html#example"><i class="fa fa-check"></i><b>1.1</b> Example</a></li>
+<li class="chapter" data-level="1.2" data-path="tab-3.html"><a href="tab-3.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="tab-3.html"><a href="tab-3.html#notations"><i class="fa fa-check"></i><b>1.2.1</b> Notations</a></li>
+<li class="chapter" data-level="1.2.2" data-path="tab-3.html"><a href="tab-3.html#assumptions"><i class="fa fa-check"></i><b>1.2.2</b> Assumptions</a></li>
+<li class="chapter" data-level="1.2.3" data-path="tab-3.html"><a href="tab-3.html#hypothesis"><i class="fa fa-check"></i><b>1.2.3</b> Hypothesis</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#exercise-web"><i class="fa fa-check"></i><b>6.4</b> Exercise (web)</a></li>
+<li class="chapter" data-level="1.3" data-path="tab-3.html"><a href="tab-3.html#data"><i class="fa fa-check"></i><b>1.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="tab-3.html"><a href="tab-3.html#data-table"><i class="fa fa-check"></i><b>1.3.1</b> Data table</a></li>
+<li class="chapter" data-level="1.3.2" data-path="tab-3.html"><a href="tab-3.html#visualization"><i class="fa fa-check"></i><b>1.3.2</b> Visualization</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>7</b> Importing NHANES to R</a><ul>
-<li class="chapter" data-level="7.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>7.1</b> NHANES Dataset</a></li>
-<li class="chapter" data-level="7.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>7.2</b> Accessing NHANES Data</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>7.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
-<li class="chapter" data-level="7.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>7.2.2</b> Accessing NHANES Data Using R Packages</a></li>
+<li class="chapter" data-level="1.4" data-path="tab-3.html"><a href="tab-3.html#checking-assumptions"><i class="fa fa-check"></i><b>1.4</b> Checking assumptions</a></li>
+<li class="chapter" data-level="1.5" data-path="tab-3.html"><a href="tab-3.html#analysis"><i class="fa fa-check"></i><b>1.5</b> Analysis</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="tab-3.html"><a href="tab-3.html#two-sample-t-test"><i class="fa fa-check"></i><b>1.5.1</b> Two-sample t-test</a></li>
+<li class="chapter" data-level="1.5.2" data-path="tab-3.html"><a href="tab-3.html#regression"><i class="fa fa-check"></i><b>1.5.2</b> Regression</a></li>
+<li class="chapter" data-level="1.5.3" data-path="tab-3.html"><a href="tab-3.html#anova"><i class="fa fa-check"></i><b>1.5.3</b> ANOVA</a></li>
 </ul></li>
+<li class="chapter" data-level="1.6" data-path="tab-3.html"><a href="tab-3.html#verdict"><i class="fa fa-check"></i><b>1.6</b> Verdict</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="tab-3.html"><a href="tab-3.html#informal-conclusion"><i class="fa fa-check"></i><b>1.6.1</b> Informal conclusion</a></li>
+<li class="chapter" data-level="1.6.2" data-path="tab-3.html"><a href="tab-3.html#a-word-of-caution"><i class="fa fa-check"></i><b>1.6.2</b> A word of caution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="tab-3.html"><a href="tab-3.html#exercises-optional"><i class="fa fa-check"></i><b>1.7</b> Exercises (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="design-based-approach.html"><a href="design-based-approach.html"><i class="fa fa-check"></i><b>2</b> Design-based Approach</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#sampling"><i class="fa fa-check"></i><b>2.1</b> Sampling</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="design-based-approach.html"><a href="design-based-approach.html#steps-of-generalization"><i class="fa fa-check"></i><b>2.1.1</b> Steps of generalization</a></li>
+<li class="chapter" data-level="2.1.2" data-path="design-based-approach.html"><a href="design-based-approach.html#types-of-sampling-techniques"><i class="fa fa-check"></i><b>2.1.2</b> Types of sampling techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#statistical-inference"><i class="fa fa-check"></i><b>2.2</b> Statistical inference</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="design-based-approach.html"><a href="design-based-approach.html#model-based"><i class="fa fa-check"></i><b>2.2.1</b> Model-based</a></li>
+<li class="chapter" data-level="2.2.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-based"><i class="fa fa-check"></i><b>2.2.2</b> Design-based</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="design-based-approach.html"><a href="design-based-approach.html#complex-surveys"><i class="fa fa-check"></i><b>2.3</b> Complex surveys</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="design-based-approach.html"><a href="design-based-approach.html#design-features"><i class="fa fa-check"></i><b>2.3.1</b> Design features</a></li>
+<li class="chapter" data-level="2.3.2" data-path="design-based-approach.html"><a href="design-based-approach.html#design-effect"><i class="fa fa-check"></i><b>2.3.2</b> Design effect</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="design-based-approach.html"><a href="design-based-approach.html#other-ideas"><i class="fa fa-check"></i><b>2.4</b> Other ideas</a></li>
+<li class="chapter" data-level="2.5" data-path="design-based-approach.html"><a href="design-based-approach.html#further-readings"><i class="fa fa-check"></i><b>2.5</b> Further readings</a></li>
+<li class="chapter" data-level="2.6" data-path="design-based-approach.html"><a href="design-based-approach.html#exercise"><i class="fa fa-check"></i><b>2.6</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="potential-data-sources.html"><a href="potential-data-sources.html"><i class="fa fa-check"></i><b>3</b> Potential Data Sources</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="potential-data-sources.html"><a href="potential-data-sources.html#survey-data-with-features"><i class="fa fa-check"></i><b>3.1</b> Survey data with features</a></li>
+<li class="chapter" data-level="3.2" data-path="potential-data-sources.html"><a href="potential-data-sources.html#others"><i class="fa fa-check"></i><b>3.2</b> Others</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html"><i class="fa fa-check"></i><b>4</b> Importing CCHS to R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#downloading-cchs-data-from-ubc"><i class="fa fa-check"></i><b>4.1</b> Downloading CCHS data from UBC</a></li>
+<li class="chapter" data-level="4.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#reading-and-formatting-the-data"><i class="fa fa-check"></i><b>4.2</b> Reading and Formatting the data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-1-processing-data-using-sas"><i class="fa fa-check"></i><b>4.2.1</b> Option 1: Processing data using SAS</a></li>
+<li class="chapter" data-level="4.2.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-2-processing-data-using-pspp-free"><i class="fa fa-check"></i><b>4.2.2</b> Option 2: Processing data using PSPP (Free)</a></li>
+<li class="chapter" data-level="4.2.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#option-3-processing-data-using-spss"><i class="fa fa-check"></i><b>4.2.3</b> Option 3: Processing data using SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#processing-data-in-r"><i class="fa fa-check"></i><b>4.3</b> Processing data in R</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#download-software"><i class="fa fa-check"></i><b>4.3.1</b> Download software</a></li>
+<li class="chapter" data-level="4.3.2" data-path="importing-cchs-to-r.html"><a href="importing-cchs-to-r.html#import-export-and-load-data-into-r"><i class="fa fa-check"></i><b>4.3.2</b> Import, export and load data into R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html"><i class="fa fa-check"></i><b>5</b> Demystifying NHANES</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#survey-history"><i class="fa fa-check"></i><b>5.2</b> Survey history</a></li>
+<li class="chapter" data-level="5.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-datafile-and-documents"><i class="fa fa-check"></i><b>5.3</b> NHANES datafile and documents</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#file-format"><i class="fa fa-check"></i><b>5.3.1</b> File format</a></li>
+<li class="chapter" data-level="5.3.2" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#continuous-nhanes-components"><i class="fa fa-check"></i><b>5.3.2</b> Continuous NHANES Components</a></li>
+<li class="chapter" data-level="5.3.3" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#public-release-excludes"><i class="fa fa-check"></i><b>5.3.3</b> Public release excludes</a></li>
+<li class="chapter" data-level="5.3.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#combining-data"><i class="fa fa-check"></i><b>5.3.4</b> Combining data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#missing-data-and-outliers"><i class="fa fa-check"></i><b>5.3.5</b> Missing data and outliers</a></li>
+<li class="chapter" data-level="5.3.6" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#nhanes-documents"><i class="fa fa-check"></i><b>5.3.6</b> NHANES documents</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="demystifying-nhanes.html"><a href="demystifying-nhanes.html#exercise-web"><i class="fa fa-check"></i><b>5.4</b> Exercise (web)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html"><i class="fa fa-check"></i><b>6</b> Importing NHANES to R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#nhanes-dataset"><i class="fa fa-check"></i><b>6.1</b> NHANES Dataset</a></li>
+<li class="chapter" data-level="6.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data"><i class="fa fa-check"></i><b>6.2</b> Accessing NHANES Data</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-directly-from-the-cdc-website"><i class="fa fa-check"></i><b>6.2.1</b> Accessing NHANES Data Directly from the CDC website</a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>6.2.2</b> Accessing NHANES Data Using R Packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="reproducing-results.html"><a href="reproducing-results.html"><i class="fa fa-check"></i><b>7</b> Reproducing Results</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="reproducing-results.html"><a href="reproducing-results.html#reproduce-results-from-a-jama-article"><i class="fa fa-check"></i><b>7.1</b> Reproduce results from a JAMA article</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="reproducing-results.html"><a href="reproducing-results.html#article"><i class="fa fa-check"></i><b>7.1.1</b> Article</a></li>
+<li class="chapter" data-level="7.1.2" data-path="reproducing-results.html"><a href="reproducing-results.html#task"><i class="fa fa-check"></i><b>7.1.2</b> Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="reproducing-results.html"><a href="reproducing-results.html#eligibility-criteria"><i class="fa fa-check"></i><b>7.1.3</b> Eligibility criteria</a></li>
+<li class="chapter" data-level="7.1.4" data-path="reproducing-results.html"><a href="reproducing-results.html#variables-of-interest"><i class="fa fa-check"></i><b>7.1.4</b> Variables of interest</a></li>
+<li class="chapter" data-level="7.1.5" data-path="reproducing-results.html"><a href="reproducing-results.html#searching-for-necessary-variables"><i class="fa fa-check"></i><b>7.1.5</b> Searching for necessary variables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="reproducing-results.html"><a href="reproducing-results.html#downloading-relevant-variables"><i class="fa fa-check"></i><b>7.2</b> Downloading relevant variables</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="reproducing-results.html"><a href="reproducing-results.html#demographic-data"><i class="fa fa-check"></i><b>7.2.1</b> Demographic data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="reproducing-results.html"><a href="reproducing-results.html#examination-data"><i class="fa fa-check"></i><b>7.2.2</b> Examination data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="reproducing-results.html"><a href="reproducing-results.html#retain-only-useful-variables"><i class="fa fa-check"></i><b>7.3</b> Retain only useful variables</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="reproducing-results.html"><a href="reproducing-results.html#quick-pick-at-the-data"><i class="fa fa-check"></i><b>7.3.1</b> Quick pick at the data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="reproducing-results.html"><a href="reproducing-results.html#merge-dara"><i class="fa fa-check"></i><b>7.4</b> Merge dara</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="reproducing-results.html"><a href="reproducing-results.html#investigate-merged-data"><i class="fa fa-check"></i><b>7.4.1</b> Investigate merged data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="reproducing-results.html"><a href="reproducing-results.html#applying-eligibility-criteria"><i class="fa fa-check"></i><b>7.5</b> Applying eligibility criteria</a></li>
+<li class="chapter" data-level="7.6" data-path="reproducing-results.html"><a href="reproducing-results.html#recoding-variables"><i class="fa fa-check"></i><b>7.6</b> Recoding variables</a></li>
+<li class="chapter" data-level="7.7" data-path="reproducing-results.html"><a href="reproducing-results.html#reproducing-table-1"><i class="fa fa-check"></i><b>7.7</b> Reproducing Table 1</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -236,159 +319,159 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tab-3" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Model-based Approach</h1>
+<div id="tab-3" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Model-based Approach<a href="tab-3.html#tab-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Review of regression analysis and ANOVA from pre-requisites (+ some extra concepts). Below we see an example of a random data generating process that depends on specification of a probability model. We assume that the population data was generated from a <code>Normal distribution</code>, and we are merely dealing with a sample. All our inferences (point estimate or hypothesis testing) will depend on how closely the data fulfill such assumption. We call such approach as ‘<code>model-based</code>’ approach.</p>
-<div id="example" class="section level2">
-<h2><span class="header-section-number">2.1</span> Example</h2>
+<div id="example" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Example<a href="tab-3.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Does plant weight increase with added nutrition?</p>
 <p>The following problem was taken from Exercise set 2.5 (2.1) from <span class="citation">Dobson and Barnett (<a href="references.html#ref-dobson2008gml" role="doc-biblioref">2008</a>)</span>:</p>
 <blockquote>
 <p>“Genetically similar seeds are randomly assigned to be raised in either a nutritionally enriched environment (treatment group) or standard conditions (control group) using a completely randomized experimental design. After a predetermined time all plants are harvested, dried and weighed.”</p>
 </blockquote>
 </div>
-<div id="research-question" class="section level2">
-<h2><span class="header-section-number">2.2</span> Research question</h2>
+<div id="research-question" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Research question<a href="tab-3.html#research-question" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We want to test whether there is any difference in yield (weight) between the two groups</p>
 <ul>
 <li>plants from nutritionally enriched environment (treatment group) and</li>
 <li>plants from standard conditions (control group)</li>
 </ul>
-<div id="notations" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Notations</h3>
+<div id="notations" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Notations<a href="tab-3.html#notations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Let <span class="math inline">\(k\)</span> be the index of each plant, and <span class="math inline">\(k = 1,...,20\)</span> for both groups.</li>
 <li>Let <span class="math inline">\(j\)</span> be the index for groups. Here, <span class="math inline">\(j = 1\)</span> for the treatment group (<code>Trt</code>), <span class="math inline">\(j = 2\)</span> for the control group (<code>Ctl</code>).</li>
 <li>Let <span class="math inline">\(Y_{jk}\)</span> denote the <span class="math inline">\(k\)</span>th observation of weights in the <span class="math inline">\(j\)</span>th group.</li>
 </ol>
 </div>
-<div id="assumptions" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Assumptions</h3>
+<div id="assumptions" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Assumptions<a href="tab-3.html#assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Assume that the <span class="math inline">\(Y_{jk}\)</span>’s are independent random variables with <span class="math inline">\(Y_{jk} \sim N(\mu_j , \sigma^2)\)</span>.</li>
 <li>We also assume that the variances are homogenious, that is, <span class="math inline">\({\sigma_1}^2\)</span> and <span class="math inline">\({\sigma_2}^2\)</span> are not very different (and could be pooled to one single value of <span class="math inline">\(\sigma^2\)</span>).</li>
 </ol>
 </div>
-<div id="hypothesis" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Hypothesis</h3>
+<div id="hypothesis" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Hypothesis<a href="tab-3.html#hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The null hypothesis <span class="math inline">\(H_0 : \mu_1 = \mu_2 = \mu\)</span>, that there is no difference, is to be compared with the alternative hypothesis <span class="math inline">\(H_1 : \mu_1 \ne \mu_2\)</span>.</p>
 </div>
 </div>
-<div id="data" class="section level2">
-<h2><span class="header-section-number">2.3</span> Data</h2>
-<div id="data-table" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Data table</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">ctl &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.17</span>,<span class="fl">5.58</span>,<span class="fl">5.18</span>,<span class="fl">6.11</span>,<span class="fl">4.50</span>,<span class="fl">4.61</span>,<span class="fl">5.17</span>,<span class="fl">4.53</span>,<span class="fl">5.33</span>,<span class="fl">5.14</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2">trt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.81</span>,<span class="fl">4.17</span>,<span class="fl">4.41</span>,<span class="fl">3.59</span>,<span class="fl">5.87</span>,<span class="fl">3.83</span>,<span class="fl">6.03</span>,<span class="fl">4.89</span>,<span class="fl">4.32</span>,<span class="fl">4.69</span>)</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">length</span>(ctl);<span class="kw">length</span>(trt)</a></code></pre></div>
+<div id="data" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Data<a href="tab-3.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-table" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Data table<a href="tab-3.html#data-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tab-3.html#cb1-1" aria-hidden="true" tabindex="-1"></a>ctl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.17</span>,<span class="fl">5.58</span>,<span class="fl">5.18</span>,<span class="fl">6.11</span>,<span class="fl">4.50</span>,<span class="fl">4.61</span>,<span class="fl">5.17</span>,<span class="fl">4.53</span>,<span class="fl">5.33</span>,<span class="fl">5.14</span>)</span>
+<span id="cb1-2"><a href="tab-3.html#cb1-2" aria-hidden="true" tabindex="-1"></a>trt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.81</span>,<span class="fl">4.17</span>,<span class="fl">4.41</span>,<span class="fl">3.59</span>,<span class="fl">5.87</span>,<span class="fl">3.83</span>,<span class="fl">6.03</span>,<span class="fl">4.89</span>,<span class="fl">4.32</span>,<span class="fl">4.69</span>)</span>
+<span id="cb1-3"><a href="tab-3.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(ctl);<span class="fu">length</span>(trt)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">group &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Ctl&quot;</span>,<span class="st">&quot;Trt&quot;</span>), <span class="dt">each =</span> <span class="kw">length</span>(ctl))</a>
-<a class="sourceLine" id="cb4-2" title="2">group</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tab-3.html#cb4-1" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Ctl&quot;</span>,<span class="st">&quot;Trt&quot;</span>), <span class="at">each =</span> <span class="fu">length</span>(ctl))</span>
+<span id="cb4-2"><a href="tab-3.html#cb4-2" aria-hidden="true" tabindex="-1"></a>group</span></code></pre></div>
 <pre><code>##  [1] &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Trt&quot; &quot;Trt&quot;
 ## [13] &quot;Trt&quot; &quot;Trt&quot; &quot;Trt&quot; &quot;Trt&quot; &quot;Trt&quot; &quot;Trt&quot; &quot;Trt&quot; &quot;Trt&quot;</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">mode</span>(group)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tab-3.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(group)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">weight &lt;-<span class="st"> </span><span class="kw">c</span>(ctl, trt)</a>
-<a class="sourceLine" id="cb8-2" title="2">weight</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tab-3.html#cb8-1" aria-hidden="true" tabindex="-1"></a>weight <span class="ot">&lt;-</span> <span class="fu">c</span>(ctl, trt)</span>
+<span id="cb8-2"><a href="tab-3.html#cb8-2" aria-hidden="true" tabindex="-1"></a>weight</span></code></pre></div>
 <pre><code>##  [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
 ## [16] 3.83 6.03 4.89 4.32 4.69</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">mode</span>(weight)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tab-3.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(weight)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">Plant.Weight.Data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">group=</span>group, <span class="dt">weight =</span> <span class="kw">c</span>(ctl, trt)) </a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="kw">mode</span>(Plant.Weight.Data)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tab-3.html#cb12-1" aria-hidden="true" tabindex="-1"></a>Plant.Weight.Data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">group=</span>group, <span class="at">weight =</span> <span class="fu">c</span>(ctl, trt)) </span>
+<span id="cb12-2"><a href="tab-3.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(Plant.Weight.Data)</span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">dim</span>(Plant.Weight.Data)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tab-3.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Plant.Weight.Data)</span></code></pre></div>
 <pre><code>## [1] 20  2</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">str</span>(Plant.Weight.Data)</a></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:	20 obs. of  2 variables:
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tab-3.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Plant.Weight.Data)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    20 obs. of  2 variables:
 ##  $ group : chr  &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; &quot;Ctl&quot; ...
 ##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...</code></pre>
 <p>The results, expressed in grams, for 20 plants in each group are shown in the following Table.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">library</span>(DT)</a></code></pre></div>
-<pre><code>## Warning: package &#39;DT&#39; was built under R version 4.0.2</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">datatable</span>(Plant.Weight.Data)</a></code></pre></div>
-<div id="htmlwidget-4b1159dcfa3249c0919b" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4b1159dcfa3249c0919b">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt"],[4.17,5.58,5.18,6.11,4.5,4.61,5.17,4.53,5.33,5.14,4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tab-3.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code></pre></div>
+<pre><code>## Warning: package &#39;DT&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tab-3.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(Plant.Weight.Data)</span></code></pre></div>
+<div id="htmlwidget-c2eeec5fd0b992299b40" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c2eeec5fd0b992299b40">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Ctl","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt","Trt"],[4.17,5.58,5.18,6.11,4.5,4.61,5.17,4.53,5.33,5.14,4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>weight<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="visualization" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Visualization</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">boxplot</span>(weight<span class="op">~</span><span class="st"> </span>group,<span class="dt">data=</span>Plant.Weight.Data)</a>
-<a class="sourceLine" id="cb21-2" title="2">weight.means &lt;-<span class="st"> </span><span class="kw">aggregate</span>(weight <span class="op">~</span><span class="st">  </span>group, <span class="dt">data=</span>Plant.Weight.Data, <span class="dt">FUN=</span>mean)</a>
-<a class="sourceLine" id="cb21-3" title="3">weight.means</a></code></pre></div>
+<div id="visualization" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Visualization<a href="tab-3.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tab-3.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight<span class="sc">~</span> group,<span class="at">data=</span>Plant.Weight.Data)</span>
+<span id="cb21-2"><a href="tab-3.html#cb21-2" aria-hidden="true" tabindex="-1"></a>weight.means <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(weight <span class="sc">~</span>  group, <span class="at">data=</span>Plant.Weight.Data, <span class="at">FUN=</span>mean)</span>
+<span id="cb21-3"><a href="tab-3.html#cb21-3" aria-hidden="true" tabindex="-1"></a>weight.means</span></code></pre></div>
 <pre><code>##   group weight
 ## 1   Ctl  5.032
 ## 2   Trt  4.661</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">weight.medians &lt;-<span class="st"> </span><span class="kw">aggregate</span>(weight <span class="op">~</span><span class="st">  </span>group, <span class="dt">data=</span>Plant.Weight.Data, <span class="dt">FUN=</span>median)</a>
-<a class="sourceLine" id="cb23-2" title="2">weight.medians</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tab-3.html#cb23-1" aria-hidden="true" tabindex="-1"></a>weight.medians <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(weight <span class="sc">~</span>  group, <span class="at">data=</span>Plant.Weight.Data, <span class="at">FUN=</span>median)</span>
+<span id="cb23-2"><a href="tab-3.html#cb23-2" aria-hidden="true" tabindex="-1"></a>weight.medians</span></code></pre></div>
 <pre><code>##   group weight
 ## 1   Ctl  5.155
 ## 2   Trt  4.550</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, weight.means<span class="op">$</span>weight, <span class="dt">pch =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="kw">text</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)<span class="op">+</span><span class="fl">0.25</span>, weight.means<span class="op">$</span>weight, <span class="dt">labels =</span> </a>
-<a class="sourceLine" id="cb25-3" title="3">       <span class="kw">paste</span>(<span class="st">&quot;Mean = &quot;</span>, weight.means<span class="op">$</span>weight), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb25-4" title="4"><span class="kw">text</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)<span class="op">-</span><span class="fl">0.25</span>, weight.means<span class="op">$</span>weight, <span class="dt">labels =</span> </a>
-<a class="sourceLine" id="cb25-5" title="5">       <span class="kw">paste</span>(<span class="st">&quot;Median = &quot;</span>,weight.medians<span class="op">$</span>weight), <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tab-3.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, weight.means<span class="sc">$</span>weight, <span class="at">pch =</span> <span class="st">&quot;*&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb25-2"><a href="tab-3.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)<span class="sc">+</span><span class="fl">0.25</span>, weight.means<span class="sc">$</span>weight, <span class="at">labels =</span> </span>
+<span id="cb25-3"><a href="tab-3.html#cb25-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">paste</span>(<span class="st">&quot;Mean = &quot;</span>, weight.means<span class="sc">$</span>weight), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb25-4"><a href="tab-3.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)<span class="sc">-</span><span class="fl">0.25</span>, weight.means<span class="sc">$</span>weight, <span class="at">labels =</span> </span>
+<span id="cb25-5"><a href="tab-3.html#cb25-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">paste</span>(<span class="st">&quot;Median = &quot;</span>,weight.medians<span class="sc">$</span>weight), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="SurveyBook_files/figure-html/rawDataShow2-1.png" width="672" /></p>
 <p>Wait: so, plan weight reduces as we add nutrition? How confidently can we say that this added nutrition harmful for the plants (e.g., so that the weight will be reduced)?</p>
 </div>
 </div>
-<div id="checking-assumptions" class="section level2">
-<h2><span class="header-section-number">2.4</span> Checking assumptions</h2>
+<div id="checking-assumptions" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Checking assumptions<a href="tab-3.html#checking-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Test of normality of the outcomes (Shapiro-Wilk normality test):</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">shapiro.test</span>(Plant.Weight.Data<span class="op">$</span>weight)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tab-3.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(Plant.Weight.Data<span class="sc">$</span>weight)</span></code></pre></div>
 <pre><code>## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  Plant.Weight.Data$weight
 ## W = 0.97311, p-value = 0.8187</code></pre>
 <p>Therefore, we cannot reject the null hypothesis that samples come from a population which has a normal distribution. Also check a normal quantile-quantile plot:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">qqnorm</span>(Plant.Weight.Data<span class="op">$</span>weight)</a>
-<a class="sourceLine" id="cb28-2" title="2"><span class="kw">qqline</span>(Plant.Weight.Data<span class="op">$</span>weight)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tab-3.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(Plant.Weight.Data<span class="sc">$</span>weight)</span>
+<span id="cb28-2"><a href="tab-3.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(Plant.Weight.Data<span class="sc">$</span>weight)</span></code></pre></div>
 <p><img src="SurveyBook_files/figure-html/testing11-1.png" width="672" /></p>
 <p>Test of homogeneity of variances, that tests <span class="math inline">\(H_0 : \sigma_1 = \sigma_2\)</span> vs. <span class="math inline">\(H_1 : \sigma_1 \ne \sigma_2\)</span>:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="co"># SD from each groups</span></a>
-<a class="sourceLine" id="cb29-2" title="2"><span class="kw">tapply</span>(Plant.Weight.Data<span class="op">$</span>weight, </a>
-<a class="sourceLine" id="cb29-3" title="3">       <span class="dt">INDEX =</span> Plant.Weight.Data<span class="op">$</span>group, <span class="dt">FUN =</span> sd)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tab-3.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SD from each groups</span></span>
+<span id="cb29-2"><a href="tab-3.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(Plant.Weight.Data<span class="sc">$</span>weight, </span>
+<span id="cb29-3"><a href="tab-3.html#cb29-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">INDEX =</span> Plant.Weight.Data<span class="sc">$</span>group, <span class="at">FUN =</span> sd)</span></code></pre></div>
 <pre><code>##       Ctl       Trt 
 ## 0.5830914 0.7936757</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">bartlett.test</span>(weight <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> Plant.Weight.Data) <span class="co"># Bartlett&#39;s test</span></a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tab-3.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> Plant.Weight.Data) <span class="co"># Bartlett&#39;s test</span></span></code></pre></div>
 <pre><code>## 
-## 	Bartlett test of homogeneity of variances
+##  Bartlett test of homogeneity of variances
 ## 
 ## data:  weight by group
 ## Bartlett&#39;s K-squared = 0.79805, df = 1, p-value = 0.3717</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co"># leveneTest(weight ~ group, data = Plant.Weight.Data) # Levene&#39;s test</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tab-3.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># leveneTest(weight ~ group, data = Plant.Weight.Data) # Levene&#39;s test</span></span></code></pre></div>
 </div>
-<div id="analysis" class="section level2">
-<h2><span class="header-section-number">2.5</span> Analysis</h2>
-<div id="two-sample-t-test" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Two-sample t-test</h3>
+<div id="analysis" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Analysis<a href="tab-3.html#analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="two-sample-t-test" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Two-sample t-test<a href="tab-3.html#two-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A two-sample (independent) t-test compares the weights of control and treatment group as follows (assuming equal variance; judging from the IQR from the boxplots or the above Bartlett test):</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">ttest&lt;-<span class="st"> </span><span class="kw">t.test</span>(weight <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> Plant.Weight.Data, </a>
-<a class="sourceLine" id="cb34-2" title="2">               <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb34-3" title="3">ttest</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tab-3.html#cb34-1" aria-hidden="true" tabindex="-1"></a>ttest<span class="ot">&lt;-</span> <span class="fu">t.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> Plant.Weight.Data, </span>
+<span id="cb34-2"><a href="tab-3.html#cb34-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-3"><a href="tab-3.html#cb34-3" aria-hidden="true" tabindex="-1"></a>ttest</span></code></pre></div>
 <pre><code>## 
-## 	Two Sample t-test
+##  Two Sample t-test
 ## 
 ## data:  weight by group
 ## t = 1.1913, df = 18, p-value = 0.249
-## alternative hypothesis: true difference in means is not equal to 0
+## alternative hypothesis: true difference in means between group Ctl and group Trt is not equal to 0
 ## 95 percent confidence interval:
 ##  -0.2833003  1.0253003
 ## sample estimates:
 ## mean in group Ctl mean in group Trt 
 ##             5.032             4.661</code></pre>
 <p>Here, we test <span class="math inline">\(H_0 : \mu_1 = \mu_2 = \mu\)</span> vs. <span class="math inline">\(H_1 : \mu_1 \ne \mu_2\)</span>.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">ttest<span class="op">$</span>statistic</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tab-3.html#cb36-1" aria-hidden="true" tabindex="-1"></a>ttest<span class="sc">$</span>statistic</span></code></pre></div>
 <pre><code>##       t 
 ## 1.19126</code></pre>
 </div>
-<div id="regression" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Regression</h3>
+<div id="regression" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Regression<a href="tab-3.html#regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A simple linear model exploring the relationship between the plant weight and the group status can be fitted as follows:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">lm.group.including.intercept &lt;-<span class="st"> </span><span class="kw">lm</span>(weight <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>group, <span class="dt">data =</span> Plant.Weight.Data)</a>
-<a class="sourceLine" id="cb38-2" title="2">lm.group.including.intercept</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tab-3.html#cb38-1" aria-hidden="true" tabindex="-1"></a>lm.group.including.intercept <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> group, <span class="at">data =</span> Plant.Weight.Data)</span>
+<span id="cb38-2"><a href="tab-3.html#cb38-2" aria-hidden="true" tabindex="-1"></a>lm.group.including.intercept</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = weight ~ 1 + group, data = Plant.Weight.Data)
@@ -396,8 +479,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Coefficients:
 ## (Intercept)     groupTrt  
 ##       5.032       -0.371</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">lm.group &lt;-<span class="st"> </span><span class="kw">lm</span>(weight <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> Plant.Weight.Data)</a>
-<a class="sourceLine" id="cb40-2" title="2">lm.group</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tab-3.html#cb40-1" aria-hidden="true" tabindex="-1"></a>lm.group <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> Plant.Weight.Data)</span>
+<span id="cb40-2"><a href="tab-3.html#cb40-2" aria-hidden="true" tabindex="-1"></a>lm.group</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = weight ~ group, data = Plant.Weight.Data)
@@ -405,24 +488,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Coefficients:
 ## (Intercept)     groupTrt  
 ##       5.032       -0.371</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">confint</span>(lm.group)</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="tab-3.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(lm.group)</span></code></pre></div>
 <pre><code>##                2.5 %    97.5 %
 ## (Intercept)  4.56934 5.4946602
 ## groupTrt    -1.02530 0.2833003</code></pre>
-<div id="interpretation" class="section level4">
-<h4><span class="header-section-number">2.5.2.1</span> Interpretation</h4>
+<div id="interpretation" class="section level4 hasAnchor" number="1.5.2.1">
+<h4><span class="header-section-number">1.5.2.1</span> Interpretation<a href="tab-3.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Note that the variable <code>group</code> is dummy coded. <code>R</code> generally chooses the first category as the reference category.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">levels</span>(<span class="kw">as.factor</span>(Plant.Weight.Data<span class="op">$</span>group))</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="tab-3.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">as.factor</span>(Plant.Weight.Data<span class="sc">$</span>group))</span></code></pre></div>
 <pre><code>## [1] &quot;Ctl&quot; &quot;Trt&quot;</code></pre>
 <ol style="list-style-type: decimal">
 <li>In this case, the intercept 5.032 tells us the predicted mean value for the plant weights for the control group (reference category of the group variable).</li>
 <li>On the other hand, the slope in interpreted as the expected difference in the mean of the plant weights for that treatment group as compared to the control group. On average, weight is 0.371 units (lb?) lower in plants who are in the treatment condition compared to those in the control condition.</li>
 </ol>
 </div>
-<div id="summary-of-the-regression-fit" class="section level4">
-<h4><span class="header-section-number">2.5.2.2</span> Summary of the regression fit</h4>
+<div id="summary-of-the-regression-fit" class="section level4 hasAnchor" number="1.5.2.2">
+<h4><span class="header-section-number">1.5.2.2</span> Summary of the regression fit<a href="tab-3.html#summary-of-the-regression-fit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The complete summary of the results is as follows:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">summary</span>(lm.group)</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="tab-3.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.group)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = weight ~ group, data = Plant.Weight.Data)
@@ -439,45 +522,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.6964 on 18 degrees of freedom
-## Multiple R-squared:  0.07308,	Adjusted R-squared:  0.02158 
+## Multiple R-squared:  0.07308,    Adjusted R-squared:  0.02158 
 ## F-statistic: 1.419 on 1 and 18 DF,  p-value: 0.249</code></pre>
 <p>This is testing a different hypothesis (from the table): <span class="math inline">\(H_0: \alpha = 0\)</span> vs. <span class="math inline">\(H_1: \alpha \ne 0\)</span> (<span class="math inline">\(\alpha\)</span> being the intercept) and <span class="math inline">\(H_0: \beta = 0\)</span> vs. <span class="math inline">\(H_1: \beta \ne 0\)</span> (<span class="math inline">\(\beta\)</span> being the slope). At the bottom of the <code>summary</code> output, the <code>F-statistic</code> tests <span class="math inline">\(H_0: \beta = 0\)</span> vs. <span class="math inline">\(H_1: \beta \ne 0\)</span>. This is an overall, and could accomodate more slopes if the regression had more slopes. E.g., for 2 slopes, this would have tested <span class="math inline">\(H_0: \beta_1 = \beta_2 = 0\)</span>.</p>
 </div>
-<div id="regression-plot" class="section level4">
-<h4><span class="header-section-number">2.5.2.3</span> Regression plot</h4>
+<div id="regression-plot" class="section level4 hasAnchor" number="1.5.2.3">
+<h4><span class="header-section-number">1.5.2.3</span> Regression plot<a href="tab-3.html#regression-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let us visualize the scatter plot and the regression line:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">Plant.Weight.Data<span class="op">$</span>group.code &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb48-2" title="2"><span class="st">  </span><span class="kw">ifelse</span>(Plant.Weight.Data<span class="op">$</span>group <span class="op">==</span><span class="st"> &quot;Trt&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb48-3" title="3">Plant.Weight.Data<span class="op">$</span>group.code</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tab-3.html#cb48-1" aria-hidden="true" tabindex="-1"></a>Plant.Weight.Data<span class="sc">$</span>group.code <span class="ot">&lt;-</span> </span>
+<span id="cb48-2"><a href="tab-3.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(Plant.Weight.Data<span class="sc">$</span>group <span class="sc">==</span> <span class="st">&quot;Trt&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb48-3"><a href="tab-3.html#cb48-3" aria-hidden="true" tabindex="-1"></a>Plant.Weight.Data<span class="sc">$</span>group.code</span></code></pre></div>
 <pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">lm.code &lt;-<span class="st"> </span><span class="kw">lm</span>(weight <span class="op">~</span><span class="st"> </span>group.code, <span class="dt">data =</span> Plant.Weight.Data)</a>
-<a class="sourceLine" id="cb50-2" title="2"><span class="kw">plot</span>(weight <span class="op">~</span><span class="st"> </span>group.code, <span class="dt">data =</span> Plant.Weight.Data, </a>
-<a class="sourceLine" id="cb50-3" title="3">     <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">&quot;Groups&quot;</span>)</a>
-<a class="sourceLine" id="cb50-4" title="4"><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="kw">levels</span>(Plant.Weight.Data<span class="op">$</span>group))</a>
-<a class="sourceLine" id="cb50-5" title="5"><span class="kw">axis</span>(<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb50-6" title="6"><span class="kw">abline</span>(lm.code, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="co"># regression line</span></a>
-<a class="sourceLine" id="cb50-7" title="7"><span class="kw">abline</span>(<span class="dt">h=</span><span class="kw">coef</span>(lm.code)[<span class="dv">1</span>], <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="co"># intercept</span></a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="tab-3.html#cb50-1" aria-hidden="true" tabindex="-1"></a>lm.code <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> group.code, <span class="at">data =</span> Plant.Weight.Data)</span>
+<span id="cb50-2"><a href="tab-3.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(weight <span class="sc">~</span> group.code, <span class="at">data =</span> Plant.Weight.Data, </span>
+<span id="cb50-3"><a href="tab-3.html#cb50-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;Groups&quot;</span>)</span>
+<span id="cb50-4"><a href="tab-3.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="fu">levels</span>(Plant.Weight.Data<span class="sc">$</span>group))</span>
+<span id="cb50-5"><a href="tab-3.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>)</span>
+<span id="cb50-6"><a href="tab-3.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm.code, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="co"># regression line</span></span>
+<span id="cb50-7"><a href="tab-3.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">coef</span>(lm.code)[<span class="dv">1</span>], <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="co"># intercept</span></span></code></pre></div>
 <p><img src="SurveyBook_files/figure-html/simpleAnalysisplot-1.png" width="672" /></p>
 </div>
-<div id="assumption-checking-for-the-residuals" class="section level4">
-<h4><span class="header-section-number">2.5.2.4</span> Assumption checking for the residuals</h4>
+<div id="assumption-checking-for-the-residuals" class="section level4 hasAnchor" number="1.5.2.4">
+<h4><span class="header-section-number">1.5.2.4</span> Assumption checking for the residuals<a href="tab-3.html#assumption-checking-for-the-residuals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Checking normality of the residuals:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">lm.residual &lt;-<span class="st"> </span><span class="kw">residuals</span>(lm.group)</a>
-<a class="sourceLine" id="cb51-2" title="2"><span class="kw">shapiro.test</span>(lm.residual)</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="tab-3.html#cb51-1" aria-hidden="true" tabindex="-1"></a>lm.residual <span class="ot">&lt;-</span> <span class="fu">residuals</span>(lm.group)</span>
+<span id="cb51-2"><a href="tab-3.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(lm.residual)</span></code></pre></div>
 <pre><code>## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  lm.residual
 ## W = 0.94744, p-value = 0.3299</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="kw">qqnorm</span>(lm.residual)</a>
-<a class="sourceLine" id="cb53-2" title="2"><span class="kw">qqline</span>(lm.residual)</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="tab-3.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(lm.residual)</span>
+<span id="cb53-2"><a href="tab-3.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(lm.residual)</span></code></pre></div>
 <p><img src="SurveyBook_files/figure-html/simpleAnalysis224-1.png" width="672" /></p>
 </div>
-<div id="null-model" class="section level4">
-<h4><span class="header-section-number">2.5.2.5</span> Null model</h4>
+<div id="null-model" class="section level4 hasAnchor" number="1.5.2.5">
+<h4><span class="header-section-number">1.5.2.5</span> Null model<a href="tab-3.html#null-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A null model (with only intercept):</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">lm.null &lt;-<span class="st"> </span><span class="kw">lm</span>(weight <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> Plant.Weight.Data) <span class="co"># Including just the intercept</span></a>
-<a class="sourceLine" id="cb54-2" title="2"><span class="kw">summary</span>(lm.null)</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="tab-3.html#cb54-1" aria-hidden="true" tabindex="-1"></a>lm.null <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> Plant.Weight.Data) <span class="co"># Including just the intercept</span></span>
+<span id="cb54-2"><a href="tab-3.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.null)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = weight ~ 1, data = Plant.Weight.Data)
@@ -495,10 +578,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 0.704 on 19 degrees of freedom</code></pre>
 </div>
 </div>
-<div id="anova" class="section level3">
-<h3><span class="header-section-number">2.5.3</span> ANOVA</h3>
+<div id="anova" class="section level3 hasAnchor" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> ANOVA<a href="tab-3.html#anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For testing for the significance of the group membership, we can compare the current model to the null model (is adding the variable <code>group</code> in the model useful?).</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">anova</span>(lm.null,lm.group)</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="tab-3.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm.null,lm.group)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: weight ~ 1
@@ -507,23 +590,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 1     19 9.4175                           
 ## 2     18 8.7292  1   0.68821 1.4191  0.249</code></pre>
 <p>Or, we could directly test <span class="math inline">\(H_0 : \mu_1 = \mu_2 = \mu\)</span> vs. <span class="math inline">\(H_1 : \mu_1 \ne \mu_2\)</span> under the homogeneity of variances assumption:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">anova</span>(lm.group)</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="tab-3.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm.group)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: weight
 ##           Df Sum Sq Mean Sq F value Pr(&gt;F)
 ## group      1 0.6882 0.68820  1.4191  0.249
 ## Residuals 18 8.7292 0.48496</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="co"># Alternate ways to do the same</span></a>
-<a class="sourceLine" id="cb60-2" title="2"><span class="co"># car::Anova(lm.group,type=&quot;II&quot;)</span></a>
-<a class="sourceLine" id="cb60-3" title="3">aov.fit &lt;-<span class="st"> </span><span class="kw">aov</span>(lm.group)</a>
-<a class="sourceLine" id="cb60-4" title="4"><span class="kw">summary</span>(aov.fit)</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="tab-3.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternate ways to do the same</span></span>
+<span id="cb60-2"><a href="tab-3.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># car::Anova(lm.group,type=&quot;II&quot;)</span></span>
+<span id="cb60-3"><a href="tab-3.html#cb60-3" aria-hidden="true" tabindex="-1"></a>aov.fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(lm.group)</span>
+<span id="cb60-4"><a href="tab-3.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov.fit)</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
 ## group        1  0.688  0.6882   1.419  0.249
 ## Residuals   18  8.729  0.4850</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="co"># Multiple pairwise-comparison: </span></a>
-<a class="sourceLine" id="cb62-2" title="2"><span class="co"># (compare with t-test; same p-value?)</span></a>
-<a class="sourceLine" id="cb62-3" title="3"><span class="kw">TukeyHSD</span>(aov.fit) </a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="tab-3.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple pairwise-comparison: </span></span>
+<span id="cb62-2"><a href="tab-3.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (compare with t-test; same p-value?)</span></span>
+<span id="cb62-3"><a href="tab-3.html#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(aov.fit) </span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -533,37 +616,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##           diff     lwr       upr     p adj
 ## Trt-Ctl -0.371 -1.0253 0.2833003 0.2490232</code></pre>
 <p>Checking normality of the residuals (not run; same as above):</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="co"># aov.residual &lt;- residuals(aov.fit)</span></a>
-<a class="sourceLine" id="cb64-2" title="2"><span class="co"># shapiro.test(aov.residual)</span></a>
-<a class="sourceLine" id="cb64-3" title="3"><span class="co"># qqnorm(aov.residual)</span></a>
-<a class="sourceLine" id="cb64-4" title="4"><span class="co"># qqline(aov.residual)</span></a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="tab-3.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aov.residual &lt;- residuals(aov.fit)</span></span>
+<span id="cb64-2"><a href="tab-3.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test(aov.residual)</span></span>
+<span id="cb64-3"><a href="tab-3.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># qqnorm(aov.residual)</span></span>
+<span id="cb64-4"><a href="tab-3.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co"># qqline(aov.residual)</span></span></code></pre></div>
 <p>ANOVA is basically a generalization of the two-sample t-test (verify that the calculated <span class="math inline">\(F = t^2\)</span>):</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">ttest<span class="op">$</span>statistic<span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="tab-3.html#cb65-1" aria-hidden="true" tabindex="-1"></a>ttest<span class="sc">$</span>statistic<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>##        t 
 ## 1.419101</code></pre>
 <p>An alternative non-parametric version of this independent 2-sample test is as follows (a Kruskal-Wallis rank sum test):</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="co"># Assuming groups come from similar shaped populations:</span></a>
-<a class="sourceLine" id="cb67-2" title="2"><span class="kw">kruskal.test</span>(weight <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> Plant.Weight.Data) </a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="tab-3.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming groups come from similar shaped populations:</span></span>
+<span id="cb67-2"><a href="tab-3.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> Plant.Weight.Data) </span></code></pre></div>
 <pre><code>## 
-## 	Kruskal-Wallis rank sum test
+##  Kruskal-Wallis rank sum test
 ## 
 ## data:  weight by group
 ## Kruskal-Wallis chi-squared = 1.7513, df = 1, p-value = 0.1857</code></pre>
 </div>
 </div>
-<div id="verdict" class="section level2">
-<h2><span class="header-section-number">2.6</span> Verdict</h2>
-<div id="informal-conclusion" class="section level3">
-<h3><span class="header-section-number">2.6.1</span> Informal conclusion</h3>
+<div id="verdict" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Verdict<a href="tab-3.html#verdict" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="informal-conclusion" class="section level3 hasAnchor" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Informal conclusion<a href="tab-3.html#informal-conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With added nutrition, plant weights generally decrease (judging from the point estimate), but such trend could be due to sampling fluctuation (e.g., as the 95% confidence interval includes the null value of 0) and we can not confidently (not at least with 95% confidence) say that adding nutrition will cause plant weights to go down.</p>
 </div>
-<div id="a-word-of-caution" class="section level3">
-<h3><span class="header-section-number">2.6.2</span> A word of caution</h3>
+<div id="a-word-of-caution" class="section level3 hasAnchor" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> A word of caution<a href="tab-3.html#a-word-of-caution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Note that, we are inherently trying to infer ‘causality’ out of a statistical analysis, even though our hypothesis is not about ‘cause’ explicitly. Unfortunately, correlation does not imply causation, and we need to know more about the subject-area and study-design before we make such inference or interpretation.</p>
 </div>
 </div>
-<div id="exercises-optional" class="section level2">
-<h2><span class="header-section-number">2.7</span> Exercises (Optional)</h2>
+<div id="exercises-optional" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Exercises (Optional)<a href="tab-3.html#exercises-optional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>What is the difference between a regression analysis with a dummy coded predictor variable vs. an ANOVA?</li>
 <li>Was multiple pairwise-comparison (<code>TukeyHSD</code>) necessary in the above example?<br />
@@ -584,15 +667,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="design-based-approach.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
-<script src="libs/gitbook/js/clipboard.min.js"></script>
-<script src="libs/gitbook/js/plugin-search.js"></script>
-<script src="libs/gitbook/js/plugin-sharing.js"></script>
-<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook/js/jquery.highlight.js"></script>
-<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -615,6 +697,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SurveyBook.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -632,7 +718,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

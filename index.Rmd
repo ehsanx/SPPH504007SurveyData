@@ -1,6 +1,6 @@
 --- 
 title: "Survey Data: Design and Examples"
-author: "Ehsan Karim"
+author: "M. Ehsan Karim"
 date: "`r Sys.Date()`"
 knit: "bookdown::preview_chapter"
 site: "bookdown::bookdown_site"
@@ -21,6 +21,7 @@ output:
     margin_references: FALSE
 documentclass: book
 bibliography: [book.bib]
+always_allow_html: true
 biblio-style: apalike
 github-repo: ehsanx/504007-SurveyData
 description: "This second level course will teach research trainees to apply methods taught in prior courses towards the development of a fundable research protocol and the analysis and interpretation of real epidemiologic data."
@@ -35,8 +36,14 @@ description: "This second level course will teach research trainees to apply met
 # options(knitr.duplicate.label = "allow")
 ```
 
+# Preamble {-}
 
-# Outline
+## Description {-}
+
+Surveys are designed to gather and assess national level health-related information. Usually governments collect these data, and make some effort to publish a version of the data for researchers to use. In this document, we will talk about various survey designs, some examples, how to download some of these data sources from Canadian and US sources. An example is included at the end regarding how to reproduce results from a paper that used one of these open data sources.
+
+
+## Outline {-}
 
 - Review of Model-based Approach
 - Introduction to Design-based Approach
@@ -46,3 +53,40 @@ description: "This second level course will teach research trainees to apply met
 - National Health and Nutrition Examination Survey (NHANES)
   - Understanding NHANES data and documentation structure
   - Data import to R
+  - Reproducing results from an article
+
+### Version history {-}
+
+Materials were updated over time through various deliveries of the content:
+
+- Teaching materials for SPPH 504-007 (till 2021)
+- Teaching materials for SPPH 604 (2022-)
+
+## Prerequisites {-}
+
+The prerequisites are knowledge of basic probability. Software demonstrations and codes will be provided in R, although proficiency in R is not required for understanding the concepts. If you are not familiar with R, and want to gain further understanding, I would suggest the following tutorial. 
+
+```{block, type='rmdcomment'}
+**R tutorial**
+
+Karim ME, Hoang A and Qu Y "Introduction to R for health data analysis" URL: [ehsanx.github.io/intro2R/](https://ehsanx.github.io/intro2R/)
+```
+
+### License {-}
+
+```{r, echo=FALSE, out.width="25%"}
+knitr::include_graphics("images/by-nc-sa.png")
+```
+
+The online version of this book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) International License. You may share, adapt the content and may distribute your contributions under the same license (CC BY-NC-SA 4.0), but you have to give appropriate credit, and cannot use material for the commercial purposes.
+
+```{block, type='rmdcomment'}
+**How to cite**
+
+Karim, ME (2022) "Survey Data: Design and Examples", URL: [ehsanx.github.io/SPPH504007SurveyData](https://ehsanx.github.io/SPPH504007SurveyData/docs/)
+```
+
+### Comments {-}
+
+For any comments regarding this document, reach out to [me](http://ehsank.com/).
+
