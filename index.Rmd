@@ -40,7 +40,7 @@ description: "This second level course will teach research trainees to apply met
 
 ## Description {-}
 
-Surveys are designed to gather and assess national level health-related information. Usually governments collect these data, and make some effort to publish a version of the data for researchers to use. In this document, we will talk about various survey designs, some examples, how to download some of these data sources from Canadian and US sources. An example is included at the end regarding how to reproduce results from a paper that used one of these open data sources.
+Surveys are designed to gather and assess national level health-related information. Usually governments collect these data, and make some effort to publish a version of the data for researchers to use. In this document, we will talk about various survey designs, some examples, how to download some of these data sources from Canadian and US sources. 
 
 
 ## Outline {-}
@@ -53,7 +53,7 @@ Surveys are designed to gather and assess national level health-related informat
 - National Health and Nutrition Examination Survey (NHANES)
   - Understanding NHANES data and documentation structure
   - Data import to R
-  - Reproducing results from an article
+
 
 ### Version history {-}
 
