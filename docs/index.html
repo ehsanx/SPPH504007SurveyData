@@ -23,7 +23,7 @@
 <meta name="author" content="M. Ehsan Karim" />
 
 
-<meta name="date" content="2022-09-28" />
+<meta name="date" content="2022-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -271,6 +271,33 @@ div.csl-indent {
 <li class="chapter" data-level="6.2.2" data-path="importing-nhanes-to-r.html"><a href="importing-nhanes-to-r.html#accessing-nhanes-data-using-r-packages"><i class="fa fa-check"></i><b>6.2.2</b> Accessing NHANES Data Using R Packages</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="reproducing-results.html"><a href="reproducing-results.html"><i class="fa fa-check"></i><b>7</b> Reproducing Results</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="reproducing-results.html"><a href="reproducing-results.html#reproduce-results-from-a-jama-article"><i class="fa fa-check"></i><b>7.1</b> Reproduce results from a JAMA article</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="reproducing-results.html"><a href="reproducing-results.html#article"><i class="fa fa-check"></i><b>7.1.1</b> Article</a></li>
+<li class="chapter" data-level="7.1.2" data-path="reproducing-results.html"><a href="reproducing-results.html#task"><i class="fa fa-check"></i><b>7.1.2</b> Task</a></li>
+<li class="chapter" data-level="7.1.3" data-path="reproducing-results.html"><a href="reproducing-results.html#eligibility-criteria"><i class="fa fa-check"></i><b>7.1.3</b> Eligibility criteria</a></li>
+<li class="chapter" data-level="7.1.4" data-path="reproducing-results.html"><a href="reproducing-results.html#variables-of-interest"><i class="fa fa-check"></i><b>7.1.4</b> Variables of interest</a></li>
+<li class="chapter" data-level="7.1.5" data-path="reproducing-results.html"><a href="reproducing-results.html#searching-for-necessary-variables"><i class="fa fa-check"></i><b>7.1.5</b> Searching for necessary variables</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="reproducing-results.html"><a href="reproducing-results.html#downloading-relevant-variables"><i class="fa fa-check"></i><b>7.2</b> Downloading relevant variables</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="reproducing-results.html"><a href="reproducing-results.html#demographic-data"><i class="fa fa-check"></i><b>7.2.1</b> Demographic data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="reproducing-results.html"><a href="reproducing-results.html#examination-data"><i class="fa fa-check"></i><b>7.2.2</b> Examination data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="reproducing-results.html"><a href="reproducing-results.html#retain-only-useful-variables"><i class="fa fa-check"></i><b>7.3</b> Retain only useful variables</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="reproducing-results.html"><a href="reproducing-results.html#quick-pick-at-the-data"><i class="fa fa-check"></i><b>7.3.1</b> Quick pick at the data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="reproducing-results.html"><a href="reproducing-results.html#merge-dara"><i class="fa fa-check"></i><b>7.4</b> Merge dara</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="reproducing-results.html"><a href="reproducing-results.html#investigate-merged-data"><i class="fa fa-check"></i><b>7.4.1</b> Investigate merged data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="reproducing-results.html"><a href="reproducing-results.html#applying-eligibility-criteria"><i class="fa fa-check"></i><b>7.5</b> Applying eligibility criteria</a></li>
+<li class="chapter" data-level="7.6" data-path="reproducing-results.html"><a href="reproducing-results.html#recoding-variables"><i class="fa fa-check"></i><b>7.6</b> Recoding variables</a></li>
+<li class="chapter" data-level="7.7" data-path="reproducing-results.html"><a href="reproducing-results.html#reproducing-table-1"><i class="fa fa-check"></i><b>7.7</b> Reproducing Table 1</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://ehsank.com/" target="blank">Author website</a></li>
@@ -295,13 +322,13 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Survey Data: Design and Examples</h1>
 <p class="author"><em>M. Ehsan Karim</em></p>
-<p class="date"><em>2022-09-28</em></p>
+<p class="date"><em>2022-10-02</em></p>
 </div>
 <div id="preamble" class="section level1 unnumbered hasAnchor">
 <h1>Preamble<a href="index.html#preamble" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="description" class="section level2 unnumbered hasAnchor">
 <h2>Description<a href="index.html#description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Surveys are designed to gather and assess national level health-related information. Usually governments collect these data, and make some effort to publish a version of the data for researchers to use. In this document, we will talk about various survey designs, some examples, how to download some of these data sources from Canadian and US sources.</p>
+<p>Surveys are designed to gather and assess national level health-related information. Usually governments collect these data, and make some effort to publish a version of the data for researchers to use. In this document, we will talk about various survey designs, some examples, how to download some of these data sources from Canadian and US sources. An example is included at the end regarding how to reproduce results from a paper that used one of these open data sources.</p>
 </div>
 <div id="outline" class="section level2 unnumbered hasAnchor">
 <h2>Outline<a href="index.html#outline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -317,6 +344,7 @@ div.csl-indent {
 <ul>
 <li>Understanding NHANES data and documentation structure</li>
 <li>Data import to R</li>
+<li>Reproducing results from an article</li>
 </ul></li>
 </ul>
 <div id="version-history" class="section level3 unnumbered hasAnchor">
